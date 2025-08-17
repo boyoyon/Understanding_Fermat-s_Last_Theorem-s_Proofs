@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>Understanding Fermat’s Last Theorem’s Proofs</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+<center>Alex Qiu, Tanish Sarathy, Spencer Nicklin, Michael Sun </center>
+<center>22nd August 2025 </center>
+
+<h2>Abstract <span style="color:blue;">要旨</span></h2>
+<p class="margin-abstract">
+We take the perspective of an advanced high school student trying to understand the proof of Fermat’s Last Theorem for the first time. W e collect definitions and statements needed to summarise how Fermat’s Last Theorem was first proved in 1995 as well as to see how the argument ha s simplified since then. We include a current timeline, outlines of proofs, background material and recent developments, as well as to organise the content in a way that is beginner friendly, offering a preview of what students may expect to learn more deeply in the future. 
+
+<br><span style="color:blue;">
+フェルマーの最終定理の証明を初めて理解しようとする高校生の視点から考察します。フェルマーの最終定理が1995年に初めて証明された経緯をまとめ、その後どのように議論が簡素化されてきたかを確認するために必要な定義と記述を集めています。また、現在のタイムライン、証明の概要、背景資料、最近の進展についても解説し、初心者にも分かりやすい構成にすることで、生徒が将来より深く学ぶことになるであろう内容を事前に把握できるようにしています。
+</span>
+</p>
+
+<h2>Contents</h2> 
+<div class="styleBullet">
+<ul>
+<li>1 Introduction　<span style="color:blue;">はじめに</span></li>
+
+<li>2 Timeline for proving Fermat’s Last Theorem　<span style="color:blue;">フェルマーの最終定理を証明するためのタイムライン</span></li>
+<li>3 Outline of 1st Proof of Fermat’s Last Theorem　<span style="color:blue;">フェルマーの最終定理の第 1 証明の概要</span></li>
+<li>4 Outline of a modern Proof of FLT　<span style="color:blue;">最新の FLT 証明の概要</span></li>
+<li>5 Structure of Article　<span style="color:blue;">記事の構成</span></li>
+<li>6 Preliminaries I　<span style="color:blue;">予備I</span></li>
+<li>7 Elliptic Curves　<span style="color:blue;">楕円曲線</span></li>
+<li>8 Preliminaries II　<span style="color:blue;">予備Ⅱ</span></li>
+<li>9 Modular Forms　<span style="color:blue;">モジュール形式</span></li>
+<li>10 Preliminaries III　<span style="color:blue;">予備Ⅲ</span></li>
+<li>11 Galois Representations　<span style="color:blue;">ガロア表現</span></li>
+<li>12 Appendix 0: Outlines　<span style="color:blue;">付録 0: 概要</span></li>
+<li>13 Appendix I: Elliptic Curves　<span style="color:blue;">付録 I: 楕円曲線</span></li>
+<li>14 Appendix II: Modular Forms　<span style="color:blue;">付録 II: モジュール形式</span></li>
+<li>15 Appendix III: Galois representations　<span style="color:blue;">付録 III: ガロア表現</span></li>
+</p>
+    </body>
+</html>
