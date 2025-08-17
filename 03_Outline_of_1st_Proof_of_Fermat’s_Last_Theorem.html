@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>03_Outline_of_1st_Proof_of_Fermat’s_Last_Theorem</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+
+<h2>3 Outline of 1st Proof of Fermat’s Last Theorem <span style="color:blue;">フェルマーの最終定理の第一証明の概要</span></h2>
+<h3>3.1 Initial Summary  <span style="color:blue;">初期概要</span></h3>
+<p>
+We do not assume the reader is familiar with the following key terms, which will be introduced here: Frey’s curve, Elliptic curve, Modular. 
+
+<br><span style="color:blue;">
+ここで紹介する「フライ曲線」、「楕円曲線」、「モジュラー」といったキーワードについては、読者がすでにご存知ないことを前提としています。
+</span>
+
+</p><p>
+We will first give an outline of the structure of the first proof of FLT without elaborating on the term Modular nor mentioning Galois Representations . 
+
+<br><span style="color:blue;">
+まず、「モジュラー」という用語の詳細やガロア表現への言及をせずに、FLT の最初の証明の構造の概要を説明します。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+• Cases \(n = 3 ,4\) are done using elementary methods 
+
+<br><span style="color:blue;">
+ケース \(n = 3,4\) は基本的な方法を使用して実行されます
+</span>
+
+</li><br><li>
+• Assume FLT is false and define Frey’s curve. 
+
+<br><span style="color:blue;">
+FLT が偽であると仮定し、フライ曲線を定義します。
+</span>
+
+</li><br><li>
+• Ribet proved that Frey’s curve is not modular. 
+
+<br><span style="color:blue;">
+リベットはフライの曲線がモジュラーではないことを証明した。
+</span>
+
+</li><br><li>
+• Wiles proved that Frey’s curve is modular. 
+
+<br><span style="color:blue;">
+ワイルズはフライの曲線がモジュラーであることを証明した。
+</span>
+
+</li><br><li>
+• Contradiction, hence Fermat’s Last Theorem is true. 
+
+<br><span style="color:blue;">
+矛盾。したがってフェルマーの最終定理は真です。
+</span>
+
+</li></ul></div>
+</p>
+
+<h4>3.1.1 Cases \(n = 3 ,4\) <span style="color:blue;">\(n = 3,4\) の場合</span></h4>
+<p>
+The proofs of these are in the Appendix (12.1.3,12.1). 
+
+<br><span style="color:blue;">
+これらの証明は付録（12.1.3、12.1）にあります。
+</span>
+
+</p><p>
+We explain why it now suffices to consider the case when \(n\) is an odd prime \(P ≥ 5\): 
+
+<br><span style="color:blue;">
+\(n\) が奇数の素数 \(P ≥ 5\) の場合を考えれば十分である理由を説明します。
+</span>
+
+</p><p>
+<strong>Theorem 3.1.</strong> If Fermat’s Last Theorem is proved true when \(n\) is an odd prime \(P ≥ 5\) or \(4\) and \(a, b, c\) are pairwise coprime, it must also be true in general. Proof. We show a solution for \(n > 2\) gives a solution for \(n = 4\) or \(n\) and odd prime. 
+
+<br><span style="color:blue;">
+<strong>定理3.1.</strong> フェルマーの最終定理は、\(n\) が奇数の素数 \(P ≥ 5\)、または \(4\) と \(a, b, c\) が互いに素な場合に成立することが証明されれば、一般にも成立する。証明。\(n > 2\) の解は、\(n = 4\)、または \(n\) と奇数の素数の場合の解を与えることを示す。
+</span>
+
+</p><p>
+We will do two cases: \(n\) is a power of 2 and \(n\) is not a power of 2: 
+
+<br><span style="color:blue;">
+ここでは、\(n\) が 2 の累乗である場合と、\(n\) が 2 の累乗でない場合の 2 つのケースを取り上げます。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+
+1. Suppose that \(n = 2^k\) satisfies Fermat’s equation for some \(k ∈ \mathbb{Z}_{≥2}\). We have 
+
+<br><span style="color:blue;">
+\(n = 2^k\) が何らかの \(k ∈ \mathbb{Z}_{≥2}\) に対してフェルマー方程式を満たすと仮定する。
+</span>
+
+\[
+a^{2^k}+ b^{2^k}= c^{2^k}
+\]
+
+\[ 
+\Longleftrightarrow (a^{2^{k−2}})^4 +(b^{2^{k−2}})^4 = (c^{2^{k−2}})^4
+\]
+ 
+But the case \(n = 4\) has no non-zero solutions. 
+
+<br><span style="color:blue;">
+しかし、\(n = 4\) の場合、非ゼロの解は存在しません。
+</span>
+
+</li><br><li>
+
+2. Now suppose that \(n = pr\) satisfies Fermat’s equation for some \(r ∈ Z^+\) and 
+odd prime \(p\). Then 
+
+<br><span style="color:blue;">
+ここで、\(n = pr\) が、ある \(r ∈ Z^+\) と奇素数 \(p\) に対してフェルマー方程式を満たすと仮定する。すると、
+</span>
+
+\[
+a^{pr} + b^{pr} = c^{pr}
+\]
+
+\[ 
+\Longleftrightarrow (a^r)^p + (b^r)^p = (c^r)^p
+\]
+ 
+which is only true if \(n = p\) satisfies Fermat’s equation. 
+
+<br><span style="color:blue;">
+これは\(n = p\)がフェルマー方程式を満たす場合にのみ真です。
+</span>
+
+</li></ul></div>
+</p><p>
+Since we know the \(n = 3\) case, we can assume \(P ≥ 5\). 
+
+<br><span style="color:blue;">
+\(n = 3\) の場合がわかっているので、\(P ≥ 5\) と仮定できます。
+</span>
+
+</p><p>
+Now if any pair of \(a, b, c\) satisfying the equation share a prime factor, then so does the third and we can just divide the n-th power of this prime from the equation. We can do this until no such common factors exist. 
+
+<br><span style="color:blue;">
+ここで、方程式を満たす \(a, b, c\) の任意のペアが共通の素因数を持つ場合、3番目の素因数も同様に持つので、この素因数のn乗を方程式から割るだけで済みます。このような共通因数がなくなるまで、これを繰り返します。
+</span>
+
+</p>
+
+<h4>3.1.2 Frey’s Curve and its Properties <span style="color:blue;">フライ曲線とその特性</span></h4>
+<p>
+Keywords: Discriminant, Non-Singular, Good/Bad/Additive/Multiplicative Re- duction, Semistable. 
+
+<br><span style="color:blue;">
+キーワード: 判別式、非特異値、良/悪/加法/乗法縮減、半安定。
+</span>
+
+</p><p>
+Assume FLT is false: 
+
+<br><span style="color:blue;">
+FLT が偽であると仮定します。
+</span>
+
+</p><p>
+That is, there exists \(a, b, c\) pairwise coprime, and a prime \(P ≥ 5\) prime, such that 
+
+<br><span style="color:blue;">
+つまり、互いに素な\(a, b, c\)と素な\(P ≥ 5\)が存在し、
+</span>
+
+\[
+a^P + b^P = c^P
+\]
+
+</p><p>
+
+Frey’s curve [7] is then defined from the equation 
+
+<br><span style="color:blue;">
+フライの曲線[7]は次の式から定義される。
+</span>
+
+\[
+y^2 = x(x − a^P)(x + b^P)
+\]
+ 
+and is an example of an Elliptic Curve . 
+
+<br><span style="color:blue;">
+これは楕円曲線の例です。
+</span>
+
+</p><p>
+We can temporarily take as a definition of an elliptic curve those equation of the form \(y^2\) equals a cubic in \(x\) with integer coefficients. 
+
+<br><span style="color:blue;">
+楕円曲線の定義として、\(y^2\) が整数係数を持つ \(x\) の 3 次方程式に等しいという形式をとることができます。
+</span>
+
+</p><p>
+The reader may be familiar with the concept of a discriminant, especially in regard to quadratic equations. If we have a quadratic expression: 
+
+<br><span style="color:blue;">
+読者の皆様は判別式の概念、特に二次方程式に関する概念に馴染みがあるかもしれません。次の二次式があるとします。
+</span>
+
+\[
+(x − r_1)(x − r_2) = x^2 − (r_1 + r_2)x + r_1r_2
+\]
+
+then the discriminant is 
+
+<br><span style="color:blue;">
+判別式は
+</span>
+
+\[
+(r_1 + r_2)^2 − 4r_1r_2 = r_1^2 − 2r_1r_2 + r_2^2 = (r_1 − r_2)^2
+\]
+ 
+which is the square of the difference of the roots. This is defined for cubics by: 
+
+<br><span style="color:blue;">
+これは根の差の2乗です。これは3次方程式では次のように定義されます。
+</span>
+
+</p><p>
+<strong>Definition 3.1</strong> (Discriminant). Suppose a cubic polynomial has roots \(r_1, r_2, r_3,\) with leading coefficient 1, then its discriminant is given by 
+
+<br><span style="color:blue;">
+<strong>定義 3.1</strong> (判別式) 3次多項式が根 \(r_1, r_2, r_3,\) を持ち、その係数が1であるとすると、その判別式は次のように与えられる。
+</span>
+
+\[
+∆ = (r_1 − r_2)^2(r_1 − r_3)^2(r_2 − r_3)^2
+\]
+
+</p><p> 
+We also take this to be the discriminant of the elliptic curve
+
+<br><span style="color:blue;">
+これを楕円曲線の判別式とみなす。
+</span>
+
+\[ 
+y^2 = (x − r_1)(x − r_2)(x − r_3)
+\]
+ 
+\(∆\) detects whether or not the roots coincide. Part of the definition of an el- liptic curve is that it is non-singular , which means that none of these roots coincide or equivalently 
+
+<br><span style="color:blue;">
+\(∆\) は、根が一致するかどうかを判定します。楕円曲線の定義の一部は、非特異性を持つことであり、これはこれらの根がどれも一致しない、あるいは同値ではないことを意味します。
+</span>
+
+\[
+∆ \neq 0  
+\]
+
+</p><p> 
+<strong>Proposition 3.1.</strong>　Frey’s curve is non-singular. Moreover, 
+
+<br><span style="color:blue;">
+<strong>命題3.1.</strong> フライ曲線は特異ではない。さらに、
+</span>
+
+\[
+∆ = ( abc )^{2p}
+\] 
+
+Proof. For Frey’s Curve, \(r_1 = 0 , r_2= a^P, r_3= −b^P\). Hence 
+
+<br><span style="color:blue;">
+証明。フライ曲線では、\(r_1 = 0 , r_2= a^P, r_3= −b^P\)である。したがって、
+</span>
+
+\[
+∆ = (a^P − 0)^2(−b^P− 0)^2(−b^P− a^P)^2 = ( abc )^{2P}  \neq 0
+\]
+
+</p><p> 
+In analysing such equations it can be helpful to reduce it modulo a prime number \(p\), i.e. setting \(p = 0\) which turns this into a finite problem that can be understood explicitly. Given a prime \(p\), one can consider the reduction at \(p\) of the Elliptic Curve by reducing all the coefficients of the curve modulo \(p\). One issue that arises is that the \(∆\) might be divisible by p and the new equation becomes singular. 
+
+<br><span style="color:blue;">
+このような方程式を解析する際には、素数 \(p\) を法として簡約すると便利です。つまり、\(p = 0\)と設定することで、この問題を明示的に理解できる有限問題に変換できます。素数\(p\)が与えられた場合、楕円曲線のすべての係数を\(p\)を法として簡約することで、\(p\)における楕円曲線の簡約を検討できます。ここで生じる問題の一つは、\(∆\)がpで割り切れる可能性があり、新しい方程式が特異になる可能性があることです。
+</span>
+
+</p><p> 
+<strong>Definition 3.2.</strong>　If \(p\) does not divide \(∆\), the discriminant is non-zero modulo \(p\), which we call good reduction at \(p\). If \(p | ∆\), the discriminant is 0 modulo \(p\), which we call bad reduction at \(p\). There are two types of bad reduction: multiplicative reduction is if exactly two roots coincide and additive reduction is if all three roots coincide. 
+
+<br><span style="color:blue;">
+<strong>定義 3.2.</strong> \(p\) が \(∆\) を割り切れない場合、判別式は \(p\) を法として非ゼロとなり、これを \(p\) における良好な縮約と呼びます。\(p | ∆\) の場合、判別式は \(p\) を法として 0 となり、これを \(p\) における不良縮約と呼びます。不良縮約には2種類あります。乗法縮約はちょうど2つの根が一致する場合、加法縮約は3つの根がすべて一致する場合です。<br>
+<br>
+(蛇足)<br>
+\(p | ∆\) ･･･ \(p\) は \(Δ(判別式)\) で割り切れる。<br>
+\(p ∤ ∆\) ･･･ \(p\) は \(Δ(判別式)\) で割り切れない<br>
+(蛇足おわり)<br>
+</span>
+
+</p><p> 
+<strong>Definition 3.3 (Semi-stable).</strong>　We call an elliptic curve semi-stable if it has only good or multiplicative reduction at every prime, or equivalently it never has additive reduction at a prime.
+
+<br><span style="color:blue;">
+<strong>定義 3.3 (半安定)</strong>　楕円曲線が、すべての素数において良好な縮約または乗法的な縮約のみを持つ場合、または同値として、素数において加法的な縮約がまったく持たない場合、その楕円曲線は半安定であると呼ばれます。
+</span>
+
+</p><p>  
+Proposition 3.2. Frey’s curve is semistable. 
+
+<br><span style="color:blue;">
+命題3.2. フライ曲線は半安定である。
+</span>
+
+</p><p> 
+Proof. Since \(a, b, c\) are coprime, if a prime divides \(a^P\), it does not divide \(b^P\). This means when reducing it any prime the roots \(a^P\) and \(b^P\) never coincide, hence the reduction at any prime is not additive. 
+
+<br><span style="color:blue;">
+証明。\(a, b, c\)は互いに素なので、素数が\(a^P\)を割り切る場合、\(b^P\)は割り切れません。つまり、\(a^P\)を任意の素数に約分しても、根\(a^P\)と\(b^P\)は決して一致しません。したがって、任意の素数における約分は加法性を持ちません。
+</span>
+
+</p>
+
+<h4>3.1.3 Ribet and Wiles <span style="color:blue;">リベットとワイルズ</sapn></h4>
+<p>
+<strong>Theorem 3.1</strong> (Ribet [4] Corollary 1.2).　If every semistable elliptic curve is modular then Fermat’s Last Theorem is true. 
+
+<br><span style="color:blue;">
+<strong>定理3.1</strong> (リベット [4] 系1.2)。すべての半安定楕円曲線がモジュラーであればフェルマーの最終定理が真である。
+</span>
+
+</p><p> 
+The corollary in [4] states the assumption as all elliptic curves are modular but it suffices to just have semistable elliptic curves be modular. 
+
+<br><span style="color:blue;">
+[4]の系では、すべての楕円曲線はモジュラーであるという仮定を述べていますが、半安定楕円曲線がモジュラーであれば十分です。
+</span>
+
+</p><p> 
+<strong>Theorem 3.2</strong> (Wiles [6]).　Every semistable elliptic curve over \(\mathbb{Q}\) is modular. 
+
+<br><span style="color:blue;">
+<strong>定理3.2</strong> (Wiles [6]). \(\mathbb{Q}\) 上のすべての半安定楕円曲線はモジュラーである。
+</span>
+
+</p><p> 
+Note that Wiles’ theorem is independent of the Frey curve, whereas the statement given for Ribet is another general theorem applied to the Frey curve. This summary is about as clean as you can get without expanding further on key concepts like modular forms and Galois representations. In particular, the major contributions of Ribet and Wiles are just short statements for now. 
+
+<br><span style="color:blue;">
+ワイルズの定理はフライ曲線とは独立であるのに対し、リベットの定理はフライ曲線に適用される別の一般定理であることに注意してください。この要約は、モジュラー形式やガロア表現といった重要な概念をこれ以上詳しく説明することなく、可能な限り簡潔にまとめたものです。特に、リベットとワイルズの主要な貢献については、今のところ簡潔な記述にとどめています。
+</span>
+
+</p><p> 
+Modular is mentioned but not elaborated in any detail for the time being, one word of warning is that the first definition of modular form one finds is actually not the definition of modular but usually just of level 1. So this initial summary is a proof outline up to a definition of the word modular. 
+
+<br><span style="color:blue;">
+モジュラーについては触れられていますが、今のところ詳しく説明されていません。注意すべき点は、最初に見つかるモジュラー形式の定義は、実際にはモジュラーの定義ではなく、通常はレベル 1 の定義にすぎないということです。したがって、この最初の要約は、モジュラーという単語の定義までの証明の概要です。
+</span>
+
+</p>
+
+<h3>3.2 Role of Modular Forms <span style="color:blue;">モジュラーフォームの役割</span></h3>
+<p>
+Here we expand on what’s behind the word modular. 
+
+<br><span style="color:blue;">
+ここでは、「モジュラー」という言葉の意味について詳しく説明します。
+</span>
+
+</p><p> 
+Key Terms: Conductor, Weight, Level. 
+
+<br><span style="color:blue;">
+キーワード: 導手(導因数)、ウェイト(重さ)、レベル。
+</span>
+
+</p>
+
+<h4>3.2.1 Conductor and Point Counts of Semistable Elliptic Curves <span style="color:blue;">半安定楕円曲線の導手と点の数</span></h4>
+<p>
+To keep track of the curve’s reduction behavior across all primes, we have: 
+
+<br><span style="color:blue;">
+すべての素数にわたる曲線の減少挙動を追跡するには、次の式を使用します。
+</span>
+
+</p><p> 
+<strong>Definition 3.4.</strong>　The conductor \(N\) is defined for semistable elliptic curves as the product of all primes where the elliptic curve has bad reduction. 
+
+<br><span style="color:blue;">
+<strong>定義 3.4.</strong>　半安定楕円曲線の導体 \(N\) は、楕円曲線が悪い約分を持つすべての素数の積として定義されます。
+</span>
+
+</p><p> 
+A more general definition exists when the curve is not semistable (which can be found in the appendix), from which, N isn’t necessarily square-free and it being square-free (i.e. \(N\) being the product of distinct primes) is equivalent to the curve being semistable. 
+
+<br><span style="color:blue;">
+曲線が半安定でない場合は、より一般的な定義が存在し (付録に記載されています)、それによれば、N は必ずしも平方自由ではなく、平方自由であること (つまり、\(N\) が異なる素数の積である) は曲線が半安定であることと同等です。
+</span>
+
+</p><p> 
+Let \(rad(n)\) denote the product of distinct prime factors of \(n\). Note \(rad(n)\) is square-free for all n, this notation allows the nice expression: 
+
+<br><span style="color:blue;">
+\(rad(n)\) を \(n\) の異なる素因数の積とします。\(rad(n)\) はすべての n に対して平方根を持たないことに注意してください。この表記法によって、次のような簡潔な表現が可能になります。
+</span>
+
+</p><p> 
+Proposition 3.3. The conductor of the Frey curve is given by 
+
+<br><span style="color:blue;">
+命題3.3. フライ曲線の導体は次のように与えられる。
+</span>
+
+\[
+N = rad( abc ). 
+\]
+
+</p><p> 
+Proof. This is immediate from the definition of the conductor above since Frey’s curve is semistable. 
+
+<br><span style="color:blue;">
+証明。フライ曲線は半安定であるため、これは上記の導体の定義から直ちに明らかである。
+</span>
+
+</p><p> 
+So, the conductor of the Frey curve is then the product of all primes dividing \(abc\) . Note that \(N\) is even as one of \(a, b, c\) is even. 
+
+<br><span style="color:blue;">
+したがって、フライ曲線の導手は、\(abc\) を割り切るすべての素数の積となります。\(N\)は偶数であり、\(a, b, c\)のいずれかが偶数であることに注意してください。
+</span>
+
+</p><p> 
+Now if we let \(E_p\) be the curve defined by the reduction of the Elliptic Curve modulo \(p ∤ ∆\), i.e. where the curve has good reduction, define 
+
+<br><span style="color:blue;">
+ここで、\(E_p\) を楕円曲線の \(p ∤ ∆\) を法として定義される曲線、すなわち曲線が良い縮小を持つ曲線とすると、次のように定義されます。
+</span>
+
+\[
+A_p = p + 1 − |E_p|
+\]
+ 
+where \(|E_p|\) denotes the number of solutions \((x,y)\) which satisfy the equation of the Elliptic Curve modulo \(p\). If the curve has bad reduction at \(p\) there are 2 cases: 
+
+<br><span style="color:blue;">
+ここで、\(|E_p|\)は、楕円曲線の方程式を法\(p\)で満たす解\((x,y)\)の数を表します。曲線が\(p\)で不完全な縮約を持つ場合、以下の2つのケースが考えられます。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+• Additive reduction: \(A_p = 0\),
+
+<br><span style="color:blue;">
+加法削減: \(A_p = 0\)、
+</span>
+
+</li><br><li>
+• Multiplicative reduction: Ap = ±1, sign known in each case. 
+
+<br><span style="color:blue;">
+乗法減算：\(A_p = ±1\), それぞれの場合で符号が判明。
+</span>
+
+</li></ul></div>
+</p><p>
+
+We further extend this to the prime powers. Define \(A_1 = 1\), and for the prime powers \(A_{p^k}\) can be defined by the recurrence relation for \(k ≥ 2\)
+
+<br><span style="color:blue;">
+これを素数冪に拡張する。\(A_1 = 1\) と定義すると、素数冪に対して \(A_{p^k}\) は \(k ≥ 2\) の漸化式によって定義できる。
+</span>
+
+\[ 
+A_{p^k}=
+\begin{cases} 
+A_pA_{p^{k−1}} & \text{if \(p\) is of bad reduction} \\
+\\ 
+A_pA_{p^{k−1}} − pA_{p^{k−2}} & \text{if \(p\) is of good reduction} 
+\end{cases}
+\]
+
+</p><p>
+We can extend this definition to a general n multiplicatively, e.g. for coprime \(p, q,\) we define \(A_{pq} = A_pA_q\).
+
+<br><span style="color:blue;">
+この定義を乗法的に一般のnに拡張することができます。たとえば、互いに素な\(p, q,\)に対して\(A_{pq} = A_pA_q\)と定義します。
+</span>
+
+</p>
+
+<h4>3.2.2 Preliminary Definition of Modular <span style="color:blue;">モジュラーの予備定義</span></h4>
+<p>
+The word modular refers to the ability to associate a modular form.
+
+<br><span style="color:blue;">
+「モジュラー」という言葉は、モジュラー形式を関連付ける機能を指します。
+</span>
+
+</p><p> 
+This amounts to taking the sequence \(A_n\) and defining the following complex valued function 
+
+<br><span style="color:blue;">
+これは、シーケンス \(A_n\) を取り、次の複素数値関数を定義することに相当する。
+</span>
+
+\[ 
+f(z) = \sum_{n=0}^\infty A_ne^{2πinz}
+\]
+ 
+</p><p> 
+for all \(z ∈ \mathbb{C}\) with strictly positive imaginary part. Let us write \(\mathcal{H}\) for the set of all such \(z\). This definition necessitates the series to converge in \(\mathcal{H}\).
+
+<br><span style="color:blue;">
+\(z ∈ \mathbb{C}\) の虚部が正であるすべての \(z\) に対して成り立つ。そのような \(z\) 全体の集合を \(\mathcal{H}\) と書く。この定義は、級数が \(\mathcal{H}\) で収束することを要求する。
+</span><br>
+<br>
+• It is called a cusp form if \(A_0 = 0\).
+
+<br><span style="color:blue;">
+\(A_0 = 0\) の場合には cusp 形式と呼ばれます。<br>
+</span>
+
+</p><p>
+We also see that such a function is necessarily periodic, that is \(∀z\) replacing \(z\) with \(z + 1\) changes every exponent by a multiple of \(2πi\) and hence: 
+
+<br><span style="color:blue;">
+また、このような関数は必然的に周期的であることもわかります。つまり、\(∀z\) を \(z\) に置き換えると、すべての指数が \(2πi\) の倍数に変化し、したがって次のようになります。
+</span>
+
+\[
+f(z + 1) = f(z)
+\] 
+
+This is a special case of the more general requirement that there exist integers \(k, N\) such that
+
+<br><span style="color:blue;">
+これは、より一般的な要件である整数\(k, N\)が存在し、
+</span>
+
+\[
+f\left(\frac{az+b}{cz+d}\right)=(cz+d)^k f(z)
+\] 
+
+for all \(z ∈ \mathcal{H}\) where \(a, b, c, d ∈ \mathbb{Z}, c = 0 \mod N\), and \(ad − bc = 1\).
+
+<br><span style="color:blue;">
+すべての\(z ∈ \mathcal{H}\)に対して、\(a, b, c, d ∈ \mathbb{Z}, c = 0 \mod N\)、\(ad − bc = 1\)が成り立ちます。
+</span>
+
+</p><p>  
+We see for example, if we take \(a = 1 , b= 1 , c= 0 , d= 1,\) we recover the  condition of being periodic. 
+
+<br><span style="color:blue;">
+たとえば、\(a = 1、b= 1、c= 0、d= 1、\) とすると、周期的であるという条件が回復されることがわかります。
+</span>
+
+</p><p> 
+The \(N\) is called the level and \(k\) the weight . Other parts of the definition will be introduced in the modular forms section. 
+
+<br><span style="color:blue;">
+\(N\) はレベル、\(k\) は重みと呼ばれます。定義の他の部分はモジュラー形式のセクションで説明します。
+</span>
+
+</p>
+
+<h4>3.2.3 Ribet’s Proof Revisited <span style="color:blue;">リベットの証明の再考</span></h4>
+<p>
+You might notice that the letter \(N\) is already taken, but this is explained by the following elaboration of Ribet’s contribution: 
+
+<br><span style="color:blue;">
+文字 \(N\) がすでに使われていることに気付いたかもしれませんが、これは Ribet の貢献を詳しく説明した次の説明で説明されています。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+• It was known that if an elliptic curve is modular, then the level of its modular form, is of the same value, \(N\), as the conductor of the elliptic curve. 
+
+<br><span style="color:blue;">
+楕円曲線がモジュラーである場合、そのモジュラー形式のレベルは、楕円曲線の導体と同じ値 \(N\) になることが知られています。
+</span>
+
+</li><br><li>
+• Ribet showed that for odd primes \(p \neq P\), if \(p | N\) and \(p^2 ∤ N\) then we can replace our modular form of level \(N\) by another modular form of level \(N/p\) and weight 2. 
+
+<br><span style="color:blue;">
+リベットは、奇数の素数 \(p \neq P\) に対して、\(p | N\) かつ \(p^2 ∤ N\) であれば、レベル \(N\) のモジュラー形式をレベル \(N/p\) と重み 2 の別のモジュラー形式で置き換えることができることを示しました。
+</span>
+
+</li><br><li>
+• Since for the Frey curve, \(N\) is square free and even, this process can be iterated until \(N = 2\) or \(N = 2P\) with weight 2. If \(P | N\), Ribet removes it using a result of Mazur. So we are left with a level two weight two cusp form. 
+
+<br><span style="color:blue;">
+フライ曲線の場合、\(N\)は平方自由かつ偶数であるため、この処理は重み2の\(N = 2\)または\(N = 2P\)になるまで反復できます。\(P | N\)の場合、RibetはMazurの結果を用いてそれを削除します。したがって、レベル2、重み2のカスプ形式が残ります。
+</span>
+
+</li><br><li>
+• It was previously known that there are no non-zero cusp forms of level and weight 2. 
+
+<br><span style="color:blue;">
+レベルと重み 2 の非ゼロのカスプ形式は存在しないことが以前はわかっていました。
+</span>
+
+</li></ul></div>
+
+
+</p><p> 
+We see that revealing the role of modular forms expands the elliptic curve story a little bit more and unlocks a chunk of disproving the Frey curve is modular, while the part about elliptic curves being modular is still basically locked. You might also be wondering how the \(P\) is used. To really unlock these parts of the story, we will need to talk about Galois representations. 
+
+<br><span style="color:blue;">
+モジュラー形式の役割を明らかにすることで、楕円曲線の話が少し広がり、フライ曲線がモジュラーであることを反証する部分が明らかになります。一方、楕円曲線がモジュラーであるという部分は基本的に未解決です。\(P\) がどのように使われるのか疑問に思われるかもしれません。この部分を真に解明するには、ガロア表現について話す必要があります。
+</span>
+
+</p>
+
+<h3>3.3 Role of Galois Representations <span style="color:blue;">ガロア表現の役割</span></h3>
+
+<p>
+Keywords (we don’t assume you already know): Galois Representation, \(l\)-adic, Point at Infinity, Abelian Group, Torsion Points 
+
+<br><span style="color:blue;">
+キーワード（既にご存知とは想定していません）: ガロア表現、\(l\)進、無限遠点、アーベル群、捩れ点
+</span>
+
+</p><p> 
+We now start mentioning Galois representations somewhat like how modular forms were mentioned in the previous or first subsection, with proper defini- tions deferred to another section. 
+
+<br><span style="color:blue;">
+ここで、モジュラー形式が前の節、つまり最初の節で言及されたのと少し同じようにガロア表現について言及し始めます。ただし、適切な定義は別の節に延期されます。
+</span>
+
+</p><p> 
+The word Galois refers to Galois theory, which in turn is named after the mathe- matician Galois who famously died in a duel. We will use Galois representations as a black box in this subsection and try to introduce its origins, the two main types we will consider, as well as their place in the proof. 
+
+<br><span style="color:blue;">
+ガロアという言葉はガロア理論を指し、ガロア理論は決闘で亡くなったことで有名な数学者ガロアにちなんで名付けられました。この節ではガロア表現をブラックボックスとして扱い、その起源、ここで検討する2つの主要な表現、そしてそれらが証明においてどのような位置を占めるかを紹介します。
+</span>
+
+</p>
+
+<h4>3.3.1 Every Elliptic Curve has a Galois Representation <span style="color:blue;">すべての楕円曲線にはガロア表現がある</span></h4>
+<p>
+We try to introduce the origins of Galois representations from elliptic curves.
+
+<br><span style="color:blue;">
+楕円曲線からガロア表現の起源を紹介したいと思います。
+</span>
+
+</p><p> 
+Given the points of an elliptic curve, there is a meaningful way in which we can add any two points \(A\) and \(B\) among them: 
+
+<br><span style="color:blue;">
+楕円曲線上の点が与えられている場合、それらの点の間に任意の 2 つの点 \(A\) と \(B\) を追加する意味のある方法があります。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+1. Take the line \(AB\) and intersect it with the elliptic curve at a third point  
+\(C\). 
+
+<br><span style="color:blue;">
+直線 \(AB\) を楕円曲線と3番目の点 \(C\) で交差させます。
+</span>
+
+</li><br><li>
+2. Then take the vertical line through \(C\) and intersect it again with the 
+elliptic curve at \(C^\prime\). 
+
+<br><span style="color:blue;">
+次に、\(C\)を通る垂直線を引き、\(C^\prime\)で楕円曲線と再び交差させます。
+</span>
+
+</li></ul></div>
+
+</p><p>
+This final intersection point is defined to be \(A + B = C^\prime\). This can be seen in the diagram below with the elliptic curve in green, line \(AB\) in black, and \(A+B\) as the second intersection of the vertical line through \(C\) with the elliptic curve. 
+
+<br><span style="color:blue;">
+この最後の交点は、\(A + B = C^\prime\) と定義されます。これは下の図で、緑色の楕円曲線、黒色の直線 \(AB\)、そして \(C\) を通る垂直線と楕円曲線の2番目の交点である \(A+B\) で示されています。
+</span>
+
+</p>
+
+<center><img src="images/fig1.png"></center>
+
+<p>
+You may notice that when both points \(A\) and \(B\) line on a vertical line, there is no third point of intersection with the elliptic curve, disrupting the definition of their sum. 
+
+<br><span style="color:blue;">
+両方の点 \(A\) と \(B\) が垂直線上にある場合、楕円曲線との 3 番目の交点は存在せず、それらの和の定義が崩れることに気付くかもしれません。
+</span>
+
+</p><p>
+One way to account for this is to add an extra point \(\mathcal{O}\) called a point at infinity and define the sum of any two vertical points to equal this point. 
+
+<br><span style="color:blue;">
+これを説明する 1 つの方法は、無限遠点と呼ばれる追加の点 \(\mathcal{O}\) を追加し、任意の 2 つの垂直点の合計がこの点と等しくなるように定義することです。
+</span>
+
+</p><p>
+In this way we see that the point \(\mathcal{O}\) behaves like zero in that for all points on the curve 
+
+<br><span style="color:blue;">
+このように、点\(\mathcal{O}\)は、曲線上のすべての点に対して、ゼロのように振舞うことがわかります。
+</span>
+
+\[
+Q + \mathcal{O} = Q. 
+\]
+
+</p><p>
+We also see that two points \(Q, R\) in the sense: 
+on a vertical line are negatives of each other 
+
+<br><span style="color:blue;">
+また、2つの点 \(Q, R\) は、垂直線上にあるという意味で、互いに負であることも分かります。
+</span>
+
+\[
+Q + R = \mathcal{O}
+\] 
+
+</p><p>
+We are now able to give a working definition for elliptic curve: 
+
+<br><span style="color:blue;">
+これで、楕円曲線の実用的な定義を与えることができるようになりました。
+</span>
+
+</p><p>
+<strong>Definition 3.1.</strong> An elliptic curve \(E\) over \(\mathbb{Q}\) are all the rational pairs \((x,y)\) satisfying some equation \(y^2 = x^3 + a_2x^2 + a_4x + a_6\) with rational constants \(a_2, a_4, a_6\), together with an extra point 
+\(\mathcal{O}\), called the point at infinity, such that \(∆ \neq 0\). 
+
+<br><span style="color:blue;">
+<strong>定義 3.1.</strong> \(\mathbb{Q}\) 上の楕円曲線 \(E\) とは、有理定数 \(a_2, a_4, a_6\) を伴う何らかの方程式 \(y^2 = x^3 + a_2x^2 + a_4x + a_6\) を満たすすべての有理数対 \((x,y)\) と、無限遠点と呼ばれる追加の点 \(\mathcal{O}\) で構成され、\(∆ \neq 0\) が成り立ちます。
+</span>
+</p><p>
+Any time an addition is defined, we get a notion of scaling by an integer as repeated addition or repeated subtraction: 
+
+<br><span style="color:blue;">
+加算が定義されるたびに、繰り返し加算または繰り返し減算として整数によるスケーリングの概念が得られます。
+</span>
+
+\[
+mQ = \underbrace{Q + Q + ···+ Q}_{m回}
+\] 
+
+</p><p>
+We are now ready to define the source of Galois representations: 
+
+<br><span style="color:blue;">
+これでガロア表現のソースを定義する準備が整いました。
+</span>
+
+</p><p>
+
+<strong>Definition 3.2</strong> (m-Torsion Points).
+
+<br><span style="color:blue;">
+<strong>定義 3.2</strong> (m-ねじれ点)
+</span>
+
+\[ 
+E[m] = \{Q ∈ E : mQ = \mathcal{O}\}
+\]
+
+</p><p> 
+This torsion is the source of our Galois representations in a similar sense to the sequence of point counts being the raw data for our modular form. This is also where the \(P\) from our initial assumption comes in as we specifically look at the set of \(P\) torsion points, denoted by \(E[P]\).
+
+<br><span style="color:blue;">
+この捩れは、点数の列がモジュラー形式の生データであるのと同様に、ガロア表現の源泉です。また、\(P\) 捩れ点の集合 \(E[P]\) に注目すると、最初の仮定から \(P\) が登場します。
+</span>
+
+</p>
+ 
+<h4>3.3.2 The Two Types of Galois Representations <span style="color:blue;">ガロア表現の2つの種類</span></h4>
+<p>
+Looking at all the powers of a prime \(l\) at once leads to \(l\)-adic Galois representa- tions, while just looking at \(l\) torsion leads to mod \(l\) Galois representation. 
+
+<br><span style="color:blue;">
+素数 \(l\) のすべてのべき乗を一度に見ると \(l\) 進ガロア表現が得られますが、\(l\) 捩れだけを見ると \(\mod l\) ガロア表現が得られます。
+</span>
+</p>
+
+<h4>3.3.3 Ribet and Wiles revisited <span style="color:blue;">リベットとワイルズの再訪</span></h4>
+<p>
+Serre’s full conjecture was that Galois representations under certain conditions were modular and further specified how to get a minimal level and weight. 
+
+<br><span style="color:blue;">
+セールの完全な予想は、特定の条件下でのガロア表現はモジュラーであり、さらに最小レベルと重みを取得する方法を指定するというものでした。
+</span>
+
+</p><p>
+The part about the minimal level and weight is called the epsilon conjecture. 
+
+<br><span style="color:blue;">
+最小レベルと重みに関する部分はイプシロン予想と呼ばれます。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+• Ribet proves the epsilon conjecture and applies it to the \(\mod P\) Galois  representation of Frey’s curve. 
+
+<br><span style="color:blue;">
+リベットはイプシロン予想を証明し、それをフライ曲線の \(\mod P\) ガロア表現に適用します。
+</span>
+
+</li><br><li>
+• Wiles proves that the 3-adic Galois representation is modular for semi stable elliptic curves and uses known results to conclude that the elliptic curve is modular in general. Part of this was already having the mod 3 Galois representation modular within reach from known results. 
+
+<br><span style="color:blue;">
+ワイルズは、3進ガロア表現が半安定楕円曲線に対してモジュラーであることを証明し、既知の結果を用いて楕円曲線が一般にモジュラーであると結論付けました。この結論の一部は、既知の結果から、mod 3ガロア表現が既にモジュラーであることが分かっていたことによるものです。
+</span>
+
+</li></ul></div>
+</p>
+
+
+<h4>3.3.4 Collection of Key Statements <span style="color:blue;">主要声明集</span></h4>
+<p>
+Here are some examples of the theorems in the actual papers whose statements we hope to understand. We put some here upfront to set our goals for which definitions to include. 
+
+<br><span style="color:blue;">
+実際の論文で述べられている定理の例をいくつか挙げます。これらの定理の記述を理解したいと考えています。どの定義を含めるかという目標を設定するために、いくつか例を挙げておきます。
+</span>
+
+</p><p>
+
+<strong>Example 3.1</strong> (Ribet’s theorem). Ribet typo in actual paper, no one read to end, though at the start there is a typo \(ρ\) that’s supposed to be a \(p\)
+
+<br><span style="color:blue;">
+<strong>例 3.1</strong> (リベットの定理)。実際の論文ではリベットの誤植があり、誰も最後まで読んでいない。冒頭に \(ρ\) と誤植があるが、これは \(p\) であるべきである。
+</span>
+
+<p style="padding-left: 6em;">
+<strong>Theorem 8.2.</strong> (Main Theorem) Let \(\rho:Gal(\overline{\mathbf{Q}}/\mathbf{Q})→ \mathbf{GL}(2,\mathbf{F})\) be an irreducible
+mod \(l\) modular representation of level \(Mp\), where \(p\) is a prime not dividing \(M\). Assume that \(\rho\) is finite at \(p\). Then \(\rho\) is modular of level \(M\) provided that at least one of the following two conditions holds:
+
+<br><span style="color:blue;">
+<strong>定理 8.2</strong> (主定理) \(\rho:Gal(\overline{\mathbf{Q}}/\mathbf{Q})→ \mathbf{GL}(2,\mathbf{F})\) をレベル \(Mp\) の既約な mod \(l\) モジュラー表現とします。ここで \(p\) は \(M\) を割り切れない素数です。\(\rho\) は \(p\) で有限であると仮定します。このとき、次の 2 つの条件の少なくとも 1 つが満たされている場合、\(\rho\) はレベル \(M\) のモジュラーです。
+</span><br>
+<br>
+(i) The prime \(l\) is a not a divisor of \(M\);
+
+<br><span style="color:blue;">
+素数 \(l\) は \(M\) の約数ではありません。
+</span><br>
+<br>
+(ⅱ) We do not have \(p \equiv 1 (\mod l)\).
+
+<br><span style="color:blue;">
+\(p \equiv 1 (\mod l)\)は成り立ちません。
+</span>
+</p>
+
+<p> 
+We will be able to define everything in this statement by the end except for finite, which is defined in Serre [3] and also showed to be satisfied when needed. 
+Example 3.2 
+(Theorems in Wiles [6]) . Highlighted in the introduction of [6] 
+
+<br><span style="color:blue;">
+最後に、有限性を除くこの文のすべてを定義できるようになります。有限性はSerre [3]で定義されており、必要に応じて満たされることも示されています。
+例3.2
+(Wiles [6]の定理) [6]の導入部で強調されています。
+</span>
+
+<p style="padding-left: 6em;">
+(I) \(\rho_0\) is ordinary (at \(p\)) by which we mean that there is a one-dimensional subspace of \(\overline{\mathbf{F}}_p^2\), stable under a decomposition group at \(p\) and such that the action on the quotient space is unramified and distinct from the action on the subspace.
+
+<br><span style="color:blue;">
+\(\rho_0\) は (\(p\) において) 通常の空間であり、これは \(\overline{\mathbf{F}}_p^2\) の 1 次元部分空間が存在し、\(p\) における分解群の下で安定であり、商空間への作用は分岐せず、部分空間への作用とは異なることを意味します。
+</span><br>
+
+<br>
+(II) \(\rho_0\) is flat (at \(p\)), meaning that as a representation of a decomposition group at \(p,\rho_0\) is equivalent to one that arises from a finite flat group scheme over \(\mathbf{Z}_p\), and det \(\rho_0\) restricted to an inertia group at \(p\) is the cyclotomic character.
+
+<br><span style="color:blue;">
+\(\rho_0\) は平坦 (\(p\) において) である、つまり、\(p,\rho_0\) における分解群の表現は、\(\mathbf{Z}_p\) 上の有限平坦群スキームから生じる表現と等価であり、\(p\) における慣性群に制限された det \(\rho_0\) は円分特性である。
+</span><br>
+
+<br>
+THEOREM 0.2. Suppose that \(\rho_0\) is irreducible and satisfies either (Ⅰ) or
+(Ⅱ) above. Suppose also that \(\rho_0\) is modular and that
+
+<br><span style="color:blue;">
+定理0.2. \(\rho_0\) が既約で、上記の(Ⅰ)または(Ⅱ)のいずれかを満たすとする。また、\(\rho_0\) がモジュラーであり、
+</span><br>
+
+<br>
+(i) \(\rho_0\) is absolutely irreducible when restricted to \(Q\left(\sqrt{(-1)^{\frac{p-1}{2}}p}\right)\) 
+
+<br><span style="color:blue;">
+\(\rho_0\) は \(Q\left(\sqrt{(-1)^{\frac{p-1}{2}}p}\right)\) に制限すると絶対的に既約である。
+</span><br>
+<br>
+
+(ⅱ) If \(q\equiv -1 \mod p\) is ramified in \(\rho_0\) then either \(\rho_0|D_q\) is reducible over the algebraic closure where \(D_q\) is a decomposition group at \(q\) or \(\rho_0|I_q\) is absolutely irreducible where \(I_q\) is an inertia group at \(q\).
+
+<br><span style="color:blue;">
+\(q\equiv -1 \mod p\) が \(\rho_0\) で分岐している場合、\(D_q\) が \(q\) における分解群であるときに \(\rho_0|D_q\) は代数閉包上で既約であるか、\(I_q\) が \(q\) における慣性群であるときに \(\rho_0|I_q\) は絶対既約であるかのいずれかです。
+</span><br>
+<br>
+
+Then any representation \(\rho\) as in the conjecture does indeed come from a mod-
+ular form.
+
+<br><span style="color:blue;">
+すると、予想にあるような任意の表現 \(\rho\) は確かにモジュラー形式から来ていることになります。
+</span><br>
+<br>
+
+THEOREM 0.3. Suppose that \(E\) is an elliptic curve defined over \(\mathbf{Q}\) and that \(\rho_0\) is the Galois action on the 3-division points. Suppose that \(E\) has the following properties:
+
+<br><span style="color:blue;">
+定理0.3. \(E\) が \(\mathbf{Q}\) 上に定義された楕円曲線であり、\(\rho_0\) が3分割点上のガロア作用であるとする。\(E\) が以下の性質を持つとする。
+</span><br>
+<br>
+(i) \(E\) has good or multiplicative reduction at 3.
+
+<br><span style="color:blue;">
+\(E\) は 3 で良好な、または乗法的縮小を持ちます。
+</span><br>
+
+<br>
+(ⅱ) \(\rho_0\) is absolutely irreducible when restricted to \(\mathbf{Q}\left(\sqrt{-3}\right)\).
+
+<br><span style="color:blue;">
+\(\rho_0\) は、\(\mathbf{Q}\left(\sqrt{-3}\right)\) に制限される場合、絶対に既約ではありません。
+</span><br>
+
+<br>
+(ⅲ) For any \(q\equiv -1 \mod 3\) either \(\rho_0|D_q\) is reducible over the algebraic closure or \(\rho_0|I_q\) is absolutely irreducible.
+
+<br><span style="color:blue;">
+任意の \(q\equiv -1 \mod 3\) に対して、\(\rho_0|D_q\) は代数閉包上で既約であるか、\(\rho_0|I_q\) は絶対的に既約ではありません。
+</span><br>
+<br>
+Then \(E\) should be modular.
+
+<br><span style="color:blue;">
+そうすると\(E\)はモジュラーになるはずです。
+</span><br>
+
+</p>
+<p>
+We can explain almost all of the definitions needed to state these, except currently for ordinary, finite flat group scheme, we have not yet discussed char- acters. We are far from a deeper understanding of these statements. 
+
+<br><span style="color:blue;">
+これらを述べるために必要な定義のほぼすべては説明できますが、現状では通常の有限平坦群のスキームについては、まだ指標について議論していません。これらの命題をより深く理解するには、まだ程遠い状況です。
+</span>
+
+</p>
+    </body>
+</html>
