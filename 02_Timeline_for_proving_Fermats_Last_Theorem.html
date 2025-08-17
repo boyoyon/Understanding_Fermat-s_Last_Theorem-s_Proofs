@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>02 Timeline for proving Fermat's Last Theorem</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+
+<h2>2 Timeline for proving Fermat’s Last Theorem 　<span style="color:blue;">フェルマーの最終定理の証明のタイムライン</span></h2>
+<p>
+There are three main components to our timeline: 
+
+<br><span style="color:blue;">
+タイムラインには 3 つの主なコンポーネントがあります。
+</span>
+
+</p><p>
+Classical contributions from 1667, the first proof by Wiles in 1995, and subsequent developments. The rest of this article after the timeline will largely ignore the classical contributions. 
+
+<br><span style="color:blue;">
+1667年からの古典的な貢献、1995年のワイルズによる最初の証明、そしてその後の発展。本稿の残りの部分では、タイムライン以降の古典的な貢献については概ね無視します。
+</span>
+
+</p>
+
+<h3>2.1 Classical Contributions　<span style="color:blue;">古典的な貢献</span></h3>
+<p>
+These might be considered the initial direct attacks on the problem that have led to many algebraic foundations that have since exploded in depth and abstraction.
+
+<br><span style="color:blue;">
+これらは、問題に対する最初の直接的な攻撃とみなされる可能性があり、それ以来、深さと抽象度が爆発的に増加した多くの代数的基礎につながりました。
+</span>
+
+<div class="styleBullet">
+<ul><li> 
+• 1667: \(n = 4\) proved by Fermat. (Proof in Appendix 12.1) 
+
+<br><span style="color:blue;">
+1667年: \(n = 4\) がフェルマーによって証明された。(証明は付録12.1を参照)
+</span>
+
+</li><br><li>
+• 1753-1770: \(n = 3\) was proved by Euler with a gap that was filled by Legendre. (Another proof is in Appendix 12.1.3) 
+
+<br><span style="color:blue;">
+1753-1770: \(n = 3\) はオイラーによって証明されたが、欠落部分はルジャンドルによって埋められた。(別の証明は付録12.1.3にある)
+</span>
+
+
+</li><br><li>
+• 1820 Germain: If \(n = p\) is a prime such that \(2p+1\) is also a prime there are no solutions for \(x, y, z\) where \(n\) does not divide any of the three numbers. Note that to this day it is still not known if there are infinitely many such primes. (We explain later on why it suffices to consider \(n\) prime.) 
+
+<br><span style="color:blue;">
+1820年 ジェルマン：\(n = p\) が素数で、\(2p+1\) も素数である場合、\(x, y, z\) において \(n\) がこれら 3 つの数のいずれをも割り切れないような解は存在しない。なお、このような素数が無限に存在するかどうかは、今日に至るまで分かっていない。（\(n\) を素数とみなせば十分である理由については、後ほど説明する。）
+</span>
+
+</li><br><li>
+• 1825: Legendre and Dirichlet proved \(n = 5\). 
+
+<br><span style="color:blue;">
+1825年: ルジャンドルとディリクレが \(n = 5\) を証明した。
+</span>
+
+</li><br><li>
+• 1838: Lam´e proved \(n = 7\) and makes instructive errors in further proof attempts. Many developments in algebraic number theory at this time. 
+
+<br><span style="color:blue;">
+1838年：ラメは \(n = 7\) を証明し、その後の証明において教訓的な誤りを犯した。この時期、代数的整数論において多くの発展があった。
+</span>
+
+</li><br><li>
+• 1850: Kummer proves that if \(n\) is part of a specific set of primes, then no solution exists. This set includes all primes up to 100 except 5, yet the size of this set is not known to be finite or infinite. 
+
+<br><span style="color:blue;">
+1850年：クンマーは、\(n\) が特定の素数集合の一部である場合、解は存在しないことを証明した。この集合には 5 を除く 100 までのすべての素数が含まれるが、この集合の大きさが有限か無限かは不明である。
+</span>
+
+</li><br><li>
+• 1952: Vandiver proves up to \(n = 2000\); some review of Kummer’s work played a role. 
+
+<br><span style="color:blue;">
+1952年: Vandiver が \(n = 2000\) までを証明。クンマーの研究のレビューが役割を果たした。
+</span>
+
+</li><br><li>
+• 1983: Faltings proves Mordell’s conjecture, which when applied to FLT shows that for all \(n\) there are only finitely many solutions such that \(gcd( x, y, z ) = 1\). 
+
+<br><span style="color:blue;">
+1983年: ファルティングスはモーデルの予想を証明しました。この予想をFLTに適用すると、すべての \(n\) に対して、\(gcd( x, y, z ) = 1\)となる解は有限個しか存在しないことが示されました。
+</span>
+
+</li><br><li>
+• 1985: The ABC conjecture is formulated by Oesterl´e–Masser which would imply FLT to be true for sufficiently large \(n\). The statement can be found in the Appendix 12.2. 
+
+<br><span style="color:blue;">
+1985年：エステルレ＝マッサーによってABC予想が定式化され、十分に大きな \(n\) に対してFLTが成立することを意味する。この記述は付録12.2に示されている。
+</span>
+
+</li><br><li>
+• 1985: Fermat’s Last Theorem is still not known to be true for infinitely many primes \(n\).
+
+<br><span style="color:blue;">
+1985年: フェルマーの最終定理は、無限個の素数 \(n\) に対して成り立つかどうかはまだわかっていない。
+</span>
+
+</li><br><li> 
+• 1990 Buhler, Crandall, Ernvall, Metsanklya verified up to \(n = 4000000\) with computer assistance. 
+
+<br><span style="color:blue;">
+1990 Buhler、Crandall、Ernvall、Metsanklya はコンピュータの支援を受けて \(n = 4000000\) まで検証しました。
+</span>
+
+</li></ul></div>
+</p><p>
+
+References for some of the above (and below) can be found in [1]. 
+
+<br><span style="color:blue;">
+上記（および下記）の一部については、[1]に参考文献があります。
+</span>
+
+</p><p>
+We will need the \(n = 3 ,4\) cases for Wiles’ proof and their proofs are in our Appendix (12.1 and 12.1.3). The \(n = 4\) proof is shorter, while \(n = 3\) is longer and takes more investment. We also state the ABC conjecture in the Appendix 12.2 and examine how it can solve FLT for all but finitely many cases of \(n\). 
+
+<br><span style="color:blue;">
+ワイルズの証明には \(n = 3,4\) の場合が必要であり、それらの証明は付録 (12.1 および 12.1.3) に示されています。\(n = 4\) の証明は短く、\(n = 3\) の証明は長く、より多くの労力を必要とします。また、付録 12.2 では ABC 予想について述べ、\(n\) の有限個を除くすべての場合において、ABC 予想が FLT を解くことができるかどうかを検証します。
+</span>
+
+</p><p>
+Aside from these, we ignore the classical contributions for the remainder of the article. Some higher cases of \(n\) may be needed to start the updated version of Wiles’ proof. 
+
+<br><span style="color:blue;">
+これらを除いて、本稿の残りの部分では古典的な貢献は無視する。ワイルズの証明の更新版を始めるには、\(n\) のより大きなケースが必要になるかもしれない。
+</span>
+
+</p>
+
+<h3>2.2 Wiles’ Proof in 1995　<br><span style="color:blue;">1995年のワイルズの証明</h3>
+<p>
+Here we intertwine a timeline for Wiles’ proof with another timeline for an up- dated proof of FLT in blue but due to technical requirements we have separated them into two. We do not assume the reader is familiar with the following key terms and treat them as black boxes for clarity: 
+
+<br><span style="color:blue;">
+ここでは、ワイルズの証明のタイムラインと、FLTの最新証明のタイムラインを青色で組み合わせていますが、技術的な要件により、これらを2つに分けました。以下のキーワードは読者が理解していないと想定し、分かりやすくするためにブラックボックスとして扱っています。
+</span>
+
+</p><p>
+Key Terms: Taniyama–Shimura–Weil Conjecture (TSW), Elliptic Curve, (Epsilon) \(\varepsilon\)-conjecture, Ribet’s Theorem. 
+
+<br><span style="color:blue;">
+キーワード: 谷山–志村–ヴェイユ予想 (TSW)、楕円曲線、(イプシロン) \(\varepsilon\)-予想、リベットの定理。
+</span>
+
+<div class="styleBullet">
+<ul><li> 
+• 1955: Taniyama proposes a surprising connection between elliptic curves and modular forms. 
+
+<br><span style="color:blue;">
+1955年: 谷山は楕円曲線とモジュラー形式の間に驚くべき関連性を提唱した。
+</span>
+
+</li><br><li> 
+• 1957: Shimura refines the conjecture with Taniyama, giving it a more rigorous mathematical formulation. 
+
+<br><span style="color:blue;">
+1957年: 志村は谷山とともにこの予想を改良し、より厳密な数学的定式化を与えた。
+</span>
+
+</li><br><li> 
+• 1958: Taniyama commits suicide at age 31. 
+
+<br><span style="color:blue;">
+1958年：谷山は31歳で自殺した。
+</span>
+
+</li><br><li> 
+• 1963: Andrew Wiles aged 10 reads about FLT in Bell’s The Last Problem and decides he would be the first to solve it! 
+
+<br><span style="color:blue;">
+1963 年: 10 歳のアンドリュー・ワイルズは、ベルの「最後の問題」で FLT について読み、自分が最初にそれを解こうと決意しました。
+</span>
+
+</li><br><li> 
+• 1967: Weil provides supporting evidence and reformulations, solidifying the conjecture’s credibility and making more people aware of it. It becomes known as the Taniyama–Shimura–Weil conjecture (TSW). 
+
+<br><span style="color:blue;">
+1967年：ヴェイユは裏付けとなる証拠と定式化を提示し、予想の信憑性を確固たるものにし、より多くの人々にその存在を知らしめた。この予想は谷山・志村・ヴェイユ予想（TSW）として知られるようになる。
+</span>
+
+</li><br><li> 
+• 1969: Hellegouarch uses hypothetical solution to Fermat’s equation to define an Elliptic curve. Serre also mentions Hurwitz 1886 as a pioneer of this idea. 
+
+<br><span style="color:blue;">
+1969年：ヘレグアークはフェルマー方程式の仮説的解を用いて楕円曲線を定義した。セールもまた、このアイデアの先駆者として1886年のハーヴィッツに言及している。
+</span>
+
+</li><br><li> 
+• 1982: Frey suggests that TSW implies FLT using a curve like that of Hellegouarch. 
+
+<br><span style="color:blue;">
+1982年: Frey は、TSW が Hellegouarch の曲線のような FLT を意味すると示唆しました。
+</span>
+
+</li><br><li> 
+• 1985: Serre rigorously formalises Frey’s suggestion and proves it up to a statement he called \(\varepsilon\) or the (epsilon) \(\varepsilon\)-conjecture [3]. 
+
+<br><span style="color:blue;">
+1985年: セールはフレイの提案を厳密に形式化し、それを彼が\(\varepsilon\)または(epsilon)\(\varepsilon\)予想と呼ぶ命題まで証明した[3]。
+</span>
+
+<br>
+
+Serre showed that if the \(\varepsilon\)-conjecture is true, then TSW implies FLT. 
+
+<br><span style="color:blue;">
+Serre は、\(\varepsilon\) 予想が正しい場合、TSW は FLT を意味することを示しました。
+</span>
+
+</li><br><li> 
+• 1986: Ribet proves the (epsilon) \(\varepsilon\)-conjecture [4]. He recounts that he proved a special case and consulted Barry Mazur about the general case, to which Mazur observed that Ribet’s argument for the special case did not lose generality and also works for the general case. This became known as Ribet’s Theorem. Therefore, TSW implies FLT. 
+
+<br><span style="color:blue;">
+1986年：リベットが(ε) \(\varepsilon\)予想を証明した[4]。彼は特殊なケースを証明した後、一般の場合についてバリー・マズールに相談した。マズールは、リベットの特殊なケースに対する議論は一般性を失っておらず、一般の場合にも成り立つと指摘した。これは後にリベットの定理として知られるようになった。したがって、TSWはFLTを意味する。
+</span>
+
+</li><br><li> 
+• 1986: Wiles upon learning this, immediately begins work on TSW. 
+
+<br><span style="color:blue;">
+1986年: ワイルズはこれを知り、直ちにTSWの作業を開始した。
+</span>
+
+</li><br><li> 
+• 1993: Wiles announces proof of FLT via a part of TSW. 
+
+<br><span style="color:blue;">
+1993年: WilesがTSWの一部を介してFLTの証明を発表。
+</span>
+
+</li><br><li> 
+• 1994: A gap was found in Wiles’ proof by Nick Katz. 
+
+<br><span style="color:blue;">
+1994年: ニック・カッツによってワイルズの証明に欠陥が発見された。
+</span>
+
+</li><br><li> 
+• 1995: Wiles plugs the gap with his former student Richard Taylor there to assist [6]. Fermat’s Last Theorem is proved! 
+
+<br><span style="color:blue;">
+1995年: ワイルズは元教え子のリチャード・テイラーの助力を得て、このギャップを解き明かした[6]。フェルマーの最終定理が証明された。
+</span>
+
+</li><br><li> 
+• Foundational work and helpful contributors that are mentioned by Wiles’ introduction [6] include: Mazur, Hida, Langlands-Tunnel, Eichler, Poitou, Tate, Iwasawa, Kunz, Flack, Ramakrishna, Rubin, Kolyvagin, and we acknowledge we may have missed some key people due to our ignorance. 
+
+<br><span style="color:blue;">
+Wilesの序文[6]で言及されている基礎的な研究と貢献者としては、Mazur、Hida、Langlands-Tunnel、Eichler、Poitou、Tate、Iwasawa、Kunz、Flack、Ramakrishna、Rubin、Kolyvaginなどが挙げられますが、私たちの無知のために重要な人物を何人か見逃している可能性があることを認めます。
+</span>
+
+</li></ul></div>
+</p>
+
+<h3>2.3 Updates to Proof via Serre’s Modularity Conjecture <span style="color:blue;">セールのモジュラリティ予想による証明の更新</span></h3>
+<p>
+This component mainly concerns the developments related to Serre’s modularity conjecture, which played a key role in both the original proof and updated proofs. It is quite likely to be incomplete. 
+
+<br><span style="color:blue;">
+このコンポーネントは主に、セールのモジュラリティ予想に関連する発展に関するもので、この予想は最初の証明と更新された証明の両方で重要な役割を果たしました。不完全なものになる可能性が高いです。
+</span>
+
+<div class="styleBullet">
+<ul><li> 
+• 1916: Ramanujan publishes several conjectures regarding the so called 
+τ-function, some involving the prime 691. Dies in 1920 at age 33. 
+
+<br><span style="color:blue;">
+1916年：ラマヌジャンはいわゆるτ関数に関するいくつかの予想を発表し、その中には素数691に関するものもあった。1920年、33歳で死去。
+</span>
+
+</li><br><li> 
+• 1970s: Deligne, building on Serre and Swinnerton-Dyer, proves some of Ramanujan’s more difficult τ conjectures using Galois representations. 
+
+<br><span style="color:blue;">
+1970年代: ドリーニュは、セールおよびスウィナートン・ダイアーを基に、ガロア表現を用いてラマヌジャンのより困難なτ予想のいくつかを証明した。
+</span>
+
+</li><br><li> 
+• 1973-1975: Serre introduces his modularity conjecture, relating Galois representations to modular forms, in a letter to Tate. Tate replies with the proof of the first cases. Serre makes conjecture public. 
+The \(\varepsilon\)-conjecture is a part of Serre’s modularity conjecture in same paper 
+. 
+
+<br><span style="color:blue;">
+1973-1975年: セールはテイトへの手紙の中で、ガロア表現とモジュラー形式を関連付けるモジュラー性予想を提示した。テイトは最初のケースの証明を返信した。セールは予想を公表した。
+\(\varepsilon\)予想は、同じ論文におけるセールのモジュラー性予想の一部である。
+</span>
+
+</li><br><li> 
+• 1986: Serre also notes that Colmez observed that Serre’s modularity con- jecture implies the Taniyama-Shimura-Weil conjecture. 
+
+<br><span style="color:blue;">
+1986年：セールはまた、セールのモジュラリティ予想は谷山-志村-ヴェイユ予想を意味するとコルメズが観察したとも指摘している。
+</span>
+
+</li><br><li> 
+• 1999: Taniyama-Shimura-Weil conjecture proof completed by Breuil, Con- rad, Diamond and Taylor building on work of Wiles, Wiles-Taylor. Now known as the Modularity Theorem [17]. FLT proof updated. 
+
+<br><span style="color:blue;">
+1999年：谷山・志村・ヴェイユ予想の証明が、ワイルズ、ワイルズ＝テイラーの研究に基づき、ブレイユ、コンラッド、ダイアモンド、テイラーによって完成された。現在ではモジュラリティ定理[17]として知られている。FLT証明が更新された。
+</span>
+
+</li><br><li> 
+• 2004-2008: Serre’s modularity conjecture was proved by Khare and Win- tenberger [18]. FLT proof updated. 
+
+<br><span style="color:blue;">
+2004-2008年: セールのモジュラ性予想がKhareとWintenbergerによって証明された[18]。FLT証明が更新された。
+</span>
+
+</li><br><li> 
+• 2019: Wintenberger dies at age 65. Shimura dies at age 89. Tate dies aged 94. 
+
+<br><span style="color:blue;">
+2019年：ウィンテンバーガー氏が65歳で死去。志村氏が89歳で死去。テイト氏が94歳で死去。
+</span>
+
+</li><br><li> 
+• 2024-2025-: On-going project led by Buzzard to formalise a modern proof of FLT in Lean with a 5 year EPSRC grant. 
+
+<br><span style="color:blue;">
+2024-2025-: Buzzard が主導する進行中のプロジェクトで、5 年間の EPSRC 助成金を受けて Lean での FLT の最新の証明を形式化します。
+</span>
+</li></ul></div>
+</p><p>
+    </body>
+</html>
