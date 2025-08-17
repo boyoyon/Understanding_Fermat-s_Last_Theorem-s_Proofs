@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>01 Introduction</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+
+<h2>1. Introduction　<span style="color:blue;">はじめに</span></h2>
+<p>
+The statement of Fermat’s Last Theorem (FLT) is that for any integer \(n > 2\), there are no integers \(x, y, z  \neq 0\) such that 
+
+<br><span style="color:blue;">
+フェルマーの最終定理 (FLT) は、任意の整数 \(n > 2\)に対して、\(x, y, z \neq 0\) となる整数は存在しない、というものです。
+</span>
+
+\[
+x^n + y^n = z^n
+\]
+
+</p><p> 
+Despite its simplicity, FLT remained unproved for over 350 years, becoming one of the longest-standing and most infamous unsolved problems in the history of mathematics. It was finally resolved in 1995 by Andrew Wiles [6], building on the work of generations of leading mathematicians. 
+One is naturally curious about how such an infamous problem was finally re- solved. Yet, to the frustration of any amateur attempting to read Wiles’s paper, they are confronted with an almost alien language, where every clarification seems to introduce ten times as many unfamiliar terms, each appearing more technical and contrived than the particular terms which are supposedly being clarified. Thus, one is quickly overwhelmed by a sense that there are infinitely many unknowns and obstacles to understanding what has happened. 
+
+<br><span style="color:blue;">
+FLTはその単純さにもかかわらず、350年以上も未解決のままであり、数学史上最も長く、そして最も悪名高い未解決問題の一つとなった。この問題は、何世代にもわたる著名な数学者たちの研究成果を基盤として、1995年にアンドリュー・ワイルズ[6]によって最終的に解決された。
+このような悪名高い問題がどのようにして最終的に解決されたのか、当然ながら興味が湧く。しかし、ワイルズの論文を読もうとするアマチュアにとってのフラストレーションは、ほとんど異質な言語に直面することである。そこでは、あらゆる説明が10倍も多くの馴染みのない用語を導入しているかのようであり、それぞれの用語は、説明されているはずの用語よりも専門的で不自然に思える。そのため、何が起こったのかを理解する上で、無限に多くの未知数と障害があるという感覚にすぐに圧倒されてしまう。
+</span>
+
+</p><p> 
+In this article, we convert our despair into a summary of the key definitions and statements needed to get an initial handle into what is going on with the proof of FLT. We do not claim to understand the proofs of the main statements and in fact we replace the proof environment that usually follows them by fur- ther clarifications of the statement. We attempt to present all of the necessary definitions as well and try to understand them, offering a chronological order of where a student might first encounter them in their mathematical journey. 
+
+<br><span style="color:blue;">
+本稿では、私たちの絶望を、FLTの証明の全体像を把握するために必要な主要な定義と命題の要約へと昇華させます。主要な命題の証明を理解していると主張するのではなく、むしろ、通常は命題に続く証明環境を、命題の更なる明確化に置き換えます。必要な定義をすべて提示し、理解を深めるとともに、学生が数学の学習過程において初めて出会うであろう場所を時系列順に示します。
+</span>
+
+</p><p> 
+We do not shy away from unravelling the definitions associated with the three main, and enormous, topics surrounding FLT: Elliptic Curves, Modular Forms and Galois representations. We are certainly not experts in any of these topics and will not try to hide our ignorance. When there is heavy detail, we will often selectively explain the proofs and theorems to match our own comprehension. 
+
+<br><span style="color:blue;">
+FLTを取り巻く3つの主要かつ膨大なトピック、すなわち楕円曲線、モジュラー形式、ガロア表現について、その定義を解き明かすことをためらいません。私たちはこれらのトピックのいずれについても専門家ではありませんし、無知を隠そうともしません。詳細な内容については、証明や定理を、私たち自身の理解度に合わせて選択的に説明することがよくあります。
+</span>
+
+</p><p> 
+We often hear that one needs to know all of these things and so much more before even beginning on such a quest to understand FLT, which while in prin- ciple sounds great, we know from experience it is idealistic and impractical. To begin to understand FLT one mustn’t be a hostage to being logically prepared but also needs the right mix of motivation, hope and encouragement throughou their preparation. 
+
+<br><span style="color:blue;">
+FLTを理解しようとする探求を始める前に、これらすべてのこと、そしてそれ以上の多くのことを知っておく必要があるとよく耳にします。原理的には素晴らしいように聞こえますが、経験上、それは理想主義的で非現実的であることが分かっています。FLTを理解し始めるには、論理的な準備に囚われてはいけません。準備を通して、モチベーション、希望、そして励ましを適切なバランスで組み合わせることも必要です。
+</span>
+
+</p><p> 
+Concrete achievements for this article include being able to engage with the introduction of Wiles’ paper where previously unfathomable, as well as to be able to understand the main statements that went into the first proof of FLT and updated proofs since then. 
+
+<br><span style="color:blue;">
+この論文の具体的な成果としては、これまでは理解できなかったウィルズの論文の導入部分に取り組むことができたこと、また、FLT の最初の証明とそれ以降に更新された証明に盛り込まれた主要な主張を理解できたことが挙げられます。
+</span>
+
+</p><p> 
+In the next Sections we present a timeline and summarise a logical outline of proofs of FLT before diving into the details in the Sections that follow. 
+
+<br><span style="color:blue;">
+次のセクションでは、タイムラインを示し、FLT の証明の論理的な概要を要約してから、後続のセクションで詳細を説明します。
+</span>
+
+</p>
+    </body>
+</html>
