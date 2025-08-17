@@ -2,13 +2,6 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8" />
-        <title>類推が破綻するとき</title>
-        <style type="text/css">
-            p
-            {
-                padding-left: 2em;
-            }
-        </style>
     </head>
     <body>
         <h1><center>フェルマーの最終定理の証明を理解する</center></h1>
