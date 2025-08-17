@@ -1,1 +1,21 @@
-"# Understanding_Fermat-s_Last_Theorem-s_Proofs" 
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <title>類推が破綻するとき</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><center>フェルマーの最終定理の証明を理解する</center></h1>
+        <h2>なにものか？</h2>
+        <p>
+            <a href="https://www.arxiv.org/abs/2508.10362">Understanding Fermat’s Last Theorem’s Proofs</a> を読んでみる。
+          　
+        </p>
+    </body>
+</html>    
