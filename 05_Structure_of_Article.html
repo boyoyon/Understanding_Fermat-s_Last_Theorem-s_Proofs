@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>5 Structure of Article</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+
+<h2>5 Structure of Article　<span style="color:blue;">本稿の構成</span></h2>
+<p>
+The goal of this section is to outline the structure of the rest of the article, especially with regard to the preliminary sections and appendices. 
+
+<br><span style="color:blue;">
+このセクションの目的は、特に予備セクションと付録に関して、記事の残りの部分の構造を概説することです。
+</span>
+</p>
+
+<h3>5.1 Preliminaries <span style="color:blue;">予備</span></h3>
+<p>
+The reader is assumed to be familiar with basic notions and common notation for functions, modular arithmetic and complex numbers. 
+
+<br><span style="color:blue;">
+読者は、関数、モジュラー演算、複素数に関する基本的な概念と一般的な表記法に精通していることが前提となります。
+</span>
+
+</p><p>
+The preliminary sections introduce standard content that you might find in undergraduate courses that we do not assume the reader has completed. It is content we believe every mathematician will encounter at some point in their education. We try to spread these out as needed rather than all in one place, so that one comes across them as they require the information for the following section. The later preliminaries will build on the earlier preliminaries. 
+
+<br><span style="color:blue;">
+予備セクションでは、読者が学部課程で学ぶ可能性のある標準的な内容を紹介します。ただし、読者が既に履修しているとは限りません。これは、すべての数学者が教育の過程で必ず遭遇する内容です。これらの内容は、すべてを一箇所にまとめるのではなく、必要に応じて分散して記載しています。これにより、読者は後続のセクションに必要な情報を得た際に、これらの内容にたどり着くことができます。後半の予備セクションは、前半の予備セクションを基に構築されます。
+</span>
+
+</p><p>
+While much of preliminary content is not central to our discussion, it is fun- damental mathematics that is needed to proceed. Students should get an idea of what is ahead in their education and will also likely be able to master some components as needed, just as some of the authors have. 
+
+<br><span style="color:blue;">
+予備的な内容の多くは私たちの議論の中心ではありませんが、先に進むために必要なのは基礎的な数学です。学生は、これからの教育で何が待ち受けているのかを把握し、著者の一部のように、必要に応じていくつかの要素を習得できる可能性が高いでしょう。
+</span>
+
+</p>
+
+<h3>5.2 Main Sections <span style="color:blue;">メインセクション</span></h3>
+<p>
+The main sections are Elliptic curves, Modular Forms, and Galois Represen- tations in that order. Their difficulty and dependencies increase dramatically with each section. Some content that might usually go into preliminaries, we put into the main sections if it is more specialised, advanced or central to the discussion. 
+
+<br><span style="color:blue;">
+主要セクションは、楕円曲線、モジュラー形式、ガロア表現の順になっています。セクションが進むにつれて、難易度と依存性が劇的に増加します。通常は予備セクションに含められる内容も、より専門的、高度、あるいは議論の中心となる場合は主要セクションに含めます。
+</span>
+
+</p>
+
+<h3>5.3 Appendices <span style="color:blue;">付録</span></h3>
+<p>
+Information that take us too far afield from the main discussion in terms of length or prerequisites are explored in the Appendices. They are not necessarily a systematic treatment of the topics, but focus on the specific explorations that the authors embarked on. 
+
+<br><span style="color:blue;">
+長さや前提条件の点で本論の主題から大きく逸脱する情報は、付録で考察されています。付録は必ずしもトピックを体系的に扱っているわけではありませんが、著者が着手した具体的な探求に焦点を当てています。
+</span>
+
+</p>
+
+<h3>5.4 Acknowledgements <span style="color:blue;">謝辞</span></h3>
+<p>
+This project was initiated by Tanish at the start of the school year with a dead- line set for completion by the July school holidays. At the outset, none of us fully anticipated the scale or depth of what lay ahead. Spencer joined midway through the project after completing his UK Team Selection Tests in Cam- bridge. Both Spencer and Tanish are currently in Year 12, and it is particularly admirable that they chose to undertake this work in the midst of a demanding HSC graduation from high school year. 
+
+<br><span style="color:blue;">
+このプロジェクトは、タニッシュが新学期の初めに開始し、7月の学校休暇までに完了するという期限が設定されました。当初は、誰もこのプロジェクトの規模や深さを完全には予想していませんでした。スペンサーは、ケンブリッジで英国チーム選抜テストを終えた後、プロジェクトの途中から参加しました。スペンサーとタニッシュは現在12年生ですが、高校卒業の厳しい時期にこのプロジェクトに取り組むことを選んだことは、特に称賛に値します。
+</span>
+
+</p><p>
+Alex, a member of last year’s Australian IMO team, is now entering under- graduate studies and is set to begin at Cambridge at the end of the year. All of us shared a strong desire to understand the mathematics behind Fermat’s Last Theorem, and I was especially motivated to explore whether the proof could be made accessible to high school students. Our goal was to distil the essence of the argument and consider how much of it could be regarded as “standard,” noting that the boundary between elementary and advanced mathematics has shifted significantly—even in the last ten years. 
+
+<br><span style="color:blue;">
+昨年のオーストラリアIMOチームのメンバーだったアレックスは、現在学部課程に進学し、年末にはケンブリッジ大学に入学する予定です。私たち全員がフェルマーの最終定理の背後にある数学を理解したいという強い思いを共有しており、私は特に、その証明を高校生にも理解しやすいものにできるかどうかを探ることに意欲的でした。私たちの目標は、議論のエッセンスを抽出し、そのどの程度が「標準的」と言えるかを検討することでした。初等数学と上級数学の境界線は、過去10年間だけでも大きく変化していることを念頭に置いています。
+</span>
+
+</p><p>
+The project grew rapidly beyond our expectations. In a matter of months we produced over 100 pages of written material, alongside a collection of video recordings and supporting references. It has been a deeply rewarding and ex- citing experience for all involved. 
+
+<br><span style="color:blue;">
+このプロジェクトは予想をはるかに超える速さで成長し、わずか数ヶ月で100ページを超える資料に加え、ビデオ録画や参考資料も作成しました。関係者全員にとって、非常にやりがいのある、刺激的な経験となりました。
+</span>
+
+</p><p>
+We are especially grateful to our families for their support throughout this jour- ney, in particular, Shikha, Laura, Kathy, Pauline and Lisa. Finally, we sincerely thank Dr. Michael Sun’s School of Maths for fostering a strong supportive com- munity environment—one in which students can engage with mathematics not in competition, but in collaboration and shared discovery. 
+
+<br><span style="color:blue;">
+この道のりを支えてくださったご家族、特にシカ、ローラ、キャシー、ポーリン、リサに心から感謝いたします。最後に、マイケル・サン博士の数学スクールの皆様には、生徒たちが競争ではなく、協力し合い、共に発見を分かち合う中で数学に取り組める、力強く支え合うコミュニティ環境を育んでくださり、心から感謝申し上げます。
+</span>
+
+</p>
+
+<h4>5.4.1 Email addresses </h4>
+<p>
+• alexqiu2007@outlook.com <br>
+• tanish.s@icloud.com <br>
+• spencerhuxtablenicklin@gmail.com <br>
+• drmichaelsun@outlook.com <br>
+
+</p>
+    </body>
+</html>

@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>6 Preliminaries I </title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+
+<h2>6 Preliminaries I <span style="color:blue;">予備Ⅰ</span></h2>
+<p>
+In this section we introduce the following terms for the first time so that we can use them in later sections, especially for elliptic curves. 
+
+<br><span style="color:blue;">
+このセクションでは、特に楕円曲線に関して後のセクションで使用できるように、次の用語を初めて導入します。
+</span>
+
+</p>
+
+<h3>6.1 Abstract Algebra <span style="color:blue;">抽象代数</span></h3>
+<p>
+Here are some terms that one might come across traditionally in second or thir d year of undergraduate courses but could learn earlier without much needed prior knowledge. We do not go into much theory but even just packaging the words can be very useful for later. 
+
+<br><span style="color:blue;">
+学部2年目または3年目の講義で通常であれば目にする用語ですが、それほど事前の知識がなくても、もっと早く学ぶことができる用語をいくつか紹介します。理論的な説明は多くありませんが、用語の意味を整理するだけでも、後々非常に役立つでしょう。
+</span>
+
+</p><p>
+Keywords: Abelian Group, Subgroup, Torsion Subgroup, Commutative Ring, Field, Characteristic, Vector Space, Module, Direct Sum 
+
+<br><span style="color:blue;">
+キーワード: アーベル群、部分群、捩れ部分群、可換環、体、特性、ベクトル空間、加群、直和
+</span>
+
+</p>
+
+<h4>6.1.1 Groups, Abelian Groups <span style="color:blue;">群、アーベル群</span></h4>
+<p>
+We first define a group without going into group theory
+
+<br><span style="color:blue;">
+まず群論に立ち入ることなく群を定義する
+</span>
+
+</p>
+
+<p>
+<strong>Definition 6.1</strong> (Group) . A group is a set \(G\) with a binary operation, ∗, such that the operation is associative : 
+
+<br><span style="color:blue;">
+<strong>定義 6.1</strong> (群)　群とは、二項演算 ∗ を持つ集合 \(G\) であり、その演算は結合的である。
+</span>
+
+\[
+(a ∗ b) ∗ c = a ∗ (b ∗ c)
+\]
+ 
+for all \(a, b, c ∈ G\), it has an identity element \(e\):
+
+<br><span style="color:blue;">
+すべての \(a, b, c ∈ G\) に対して、単位元 \(e\) を持つ。
+</span>
+
+\[ 
+a ∗ e = a = e ∗ a 
+\]
+
+for all \(a ∈ G\), and finally, every \(a ∈ G\) has an inverse element \(b\), such that 
+
+<br><span style="color:blue;">
+すべての\(a ∈ G\)に対して、逆元\(b\)があり、
+</span>
+
+\[
+a ∗ b = e = b ∗ a. 
+\]
+
+</p><p>
+The main property of emphasis in a group is that everything is invertible. For example this means that if we can add, we can also subtract, and if we can multiply, we can also divide. Associativity is in some sense present in everything, while even if something doesn’t have an identity, one can usually just add one artificially.
+
+<br><span style="color:blue;">
+群における強調される主な性質は、すべての要素が可逆であるというこです。例えば、足し算ができれば引き算もでき、掛け算ができれば割り算もできるということです。結合法則は、ある意味ではあらゆるものに存在し、たとえ何かが単位元を持たないとしても、通常は人為的に単位元を加えるだけで済みます。
+</span>
+
+</p><p> 
+<strong>Definition 6.2</strong> (Subgroup) . A subgroup \(H\) of a group \(G\) is a subset that is closed under the operation of that whole group: 
+
+<br><span style="color:blue;">
+<strong>定義 6.2</strong> (部分群) 群 \(G\) の部分群 \(H\) とは、その群全体の作用素に関して閉じた部分集合のことである。
+</span>
+
+\[
+h_1h_2 ∈ H
+\]
+ 
+for all \(h_1, h_2 ∈ H\) and is itself a group under this restricted operation. 
+
+<br><span style="color:blue;">
+すべての\(h_1, h_2∈H\)に対して成り立ち、それ自体はこの制限された操作の下で群である。
+</span>
+
+</p><p>
+<strong>Example 6.1.</strong> Given a set \(X\), the set of invertible functions \(f : X → X\) with operation as composition of functions is a key example of a group. 
+
+<br><span style="color:blue;">
+<strong>例 6.1.</strong> 集合 \(X\) が与えられたとき、関数の合成として演算される可逆関数 \(f : X → X\) の集合は、群の重要な例です。
+</span>
+
+</p><p>
+We see that in this example there is exactly one identity function and every function has a unique inverse. This is true in general: 
+
+<br><span style="color:blue;">
+この例では、恒等関数は1つだけ存在し、すべての関数には一意の逆関数が存在することがわかります。これは一般に当てはまります。
+</span>
+
+</p><p>
+<strong>Lemma 6.1.</strong> The identity and inverses are uniquely defined. 
+
+<br><span style="color:blue;">
+<strong>補題 6.1.</strong> 恒等関数と逆関数は一意に定義されます。
+</span>
+
+</p><p>
+Proof. <strong>Identity is Unique</strong>: 
+
+<br><span style="color:blue;">
+証明。<strong>恒等関数は一意である</strong>:
+</span>
+
+</p>
+
+<p style="padding-left: 4em;">
+Suppose \(e\) and \(e^\prime\) are identities. 
+
+<br><span style="color:blue;">
+\(e\) と \(e^\prime\) が恒等式であるとします。
+</span>
+
+\[
+e = e ∗ e^\prime = e^\prime
+\]
+ 
+<strong>Inverse is Unique:</strong> <br>
+Suppose \(b\) has inverse \(c\), and another inverse \(d\).
+
+<br><span style="color:blue;">
+<strong>逆関数は一意である:</strong> <br>
+\(b\) に逆関数 \(c\) があり、さらに別の逆関数 \(d\) があるとします。
+</span>
+
+\[ 
+c = c ∗ e = c ∗ (b ∗ d) = ( c ∗ b) ∗ d = e ∗ d = d.
+\]
+
+</p><p> 
+If the operation can be carried out in either order then we have an Abelian group: 
+
+<br><span style="color:blue;">
+どちらの順序でも演算を実行できる場合は、アーベル群が得られます。
+</span>
+
+</p><p> 
+<strong>Definition 6.3</strong> (Abelian Group) . An Abelian group is a group \(G\), ∗ whose operation ∗ is commutative : 
+
+<br><span style="color:blue;">
+<strong>定義 6.3</strong> (アーベル群) アーベル群とは、その演算 ∗ が可換である群 \(G\), ∗ のことである。
+</span>
+
+\[
+a ∗ b = b ∗ a 
+\]
+
+for all \(a, b ∈ G\). It is common for Abelian groups to have ∗ written as + and the operation called addition with identity 0. 
+
+<br><span style="color:blue;">
+すべての \(a, b ∈ G\) に対して成り立つ。アーベル群では、∗ は + と書かれ、演算は恒等式 0 の加法と呼ばれるのが一般的である。
+</span>
+
+</p><p> 
+<strong>Example 6.2.</strong> The set of integers \(\mathbb{Z}\) together with addition is a key example of an Abelian group. 
+
+<br><span style="color:blue;">
+<strong>例 6.2.</strong> 整数の集合 \(\mathbb{Z}\) と加法は、アーベル群の重要な例です。
+</span>
+
+</p><p> 
+<strong>Example 6.3.</strong> The set integers modulo \(n\), \(\mathbb{Z}/n\mathbb{Z}\), together with addition is another key example of an Abelian group. It is an example of a quotient group of \(\mathbb{Z}\) by \(n\mathbb{Z}\), which can be thought of as a group formed by setting the elements of the subgroup \(n\mathbb{Z}\) to zero in \(\mathbb{Z}\) along with its consequences (for example, if two numbers differ by \(n\), then they are now equal). A similar construction can be made for any abelian group and one of its subgroups. 
+
+<br><span style="color:blue;">
+<strong>例 6.3.</strong>  整数の集合を法 \(n\) で割ったもの \((\mathbb{Z}/n\mathbb{Z}\)）と加法の組み合わせは、アーベル群のもう一つの重要な例です。これは、\(\mathbb{Z}\) を部分群 \(n\mathbb{Z}\) で割った剰余群の例であり、\(n\mathbb{Z}\) の要素を \(\mathbb{Z}\) の中で \(0\) とみなすことで構成される群と考えることができます（例えば、2つの数が \(n\) だけ異なる場合、それらは同じと見なされます）。同様の構成は、任意のアーベル群とその部分群に対しても可能です。
+
+</span>
+
+</p><p> 
+<strong>Example 6.4.</strong> The set of symmetries of an equilateral triangle (ways of rotating and reflecting it which preserve its appearance) form a group under the operation of composition, i.e. doing one symmetry after another, but it is not an abelian group. For instance, horizonally reflecting the triangle and then rotating it \(120^\circ\) clockwise is not the same symmetry as rotating it \(120^\circ\) 
+clockwise and then horizontally reflecting it, so the operation is not commutative.
+
+<br><span style="color:blue;">
+<strong>例 6.4.</strong> 正三角形の対称性の集合（見た目を保ったまま回転や鏡映を行う方法）は、合成操作、つまり対称性を次々と行うことによって群を形成しますが、アーベル群ではありません。例えば、三角形を水平に鏡映してから時計回りに \(120^\circ\) 回転させる操作と、時計回りに \(120^\circ\) 回転してから水平に鏡映する操作は同じ対称性ではありません。したがって、この操作は可換ではありません。
+</span>
+
+</p><p>  
+<strong>Definition 6.4</strong> (Cyclic Group) . A finite cyclic group is a group with a finite number of elements which can all be reached by repeatedly applying the group operation on one element, known as the generator . For example, the set of integers modulo \(n: \{0,1,2, ..., n − 1\}\) denoted \(\mathbb{Z}/n\mathbb{Z}\) is a finite cyclic group under addition with generator \(1\), while \(\mathbb{Z}\),+ is an example of an infinite cyclic group. 
+
+<br><span style="color:blue;">
+<strong>定義 6.4</strong> (巡回群) 有限巡回群とは、生成元と呼ばれる1つの元に群演算を繰り返し適用することで、すべての元に到達できる有限個の元を持つ群である。例えば、\(n: \{0,1,2, ..., n − 1\}\) を法とする整数の集合 \(\mathbb{Z}/n\mathbb{Z}\) は、生成元 \(1\) を持つ加法による有限巡回群である。一方、\(\mathbb{Z}\),+ は無限巡回群の例である。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+• One of our key checkpoints is to show that the sum of points defined in the outline makes an elliptic curve into an Abelian group. 
+
+<br><span style="color:blue;">
+私たちの重要なチェックポイントの 1 つは、アウトラインで定義された点の合計によって楕円曲線がアーベル群になることを示すことです。
+</span>
+
+</li><br><li>
+• Notice \(\mathbb{Z}/n\mathbb{Z}\) has the property that adding \(1\) \(n\) times gets back to \(0\), this is an example of torsion , which can be defined for any Abelian group: 
+
+<br><span style="color:blue;">
+• \(\mathbb{Z}/n\mathbb{Z}\) には \(1\) を \(n\) 回加算すると \(0\) に戻るという性質があります。これは任意のアーベル群に対して定義できるねじれの例です。
+</span>
+
+</li></ul></div>
+</p><p>
+
+<strong>Definition 6.5</strong> (Scalar Multiplication by Integers) . Let \(G\) be an Abelian group. For \(n ∈ Z\) and \(g ∈ G\), define \(ng\) by 
+
+<br><span style="color:blue;">
+<strong>定義 6.5</strong> (整数によるスカラー乗算) \(G\) をアーベル群とする。\(n ∈ Z\) および \(g ∈ G\) に対して、\(ng\) を次のように定義する。
+</span>
+
+\[
+ng = \underbrace{g + g + · · · + g}_{n回}
+\]
+ 
+when \(n ≥ 0\) and \((−n)(−g)\) when \(n <0\).
+
+<br><span style="color:blue;">
+\(n ≥ 0\) の場合。\(n <0\)の場合は, \((−n)(−g)\)。
+</span>
+
+</p><p> 
+Now we have the following definition: 
+
+<br><span style="color:blue;">
+ここで次の定義が得られます。
+</span>
+
+</p><p> 
+<strong>Definition 6.6</strong> (Torsion Subgroup). Given an Abelian group \(G\), + and an integer \(n\), the set 
+
+<br><span style="color:blue;">
+<strong>定義 6.6</strong> (捩れ部分群) アーベル群 \(G\)、+、整数 \(n\) が与えられたとき、集合
+</span>
+
+\[
+G[n] = \{g ∈ G : ng = 0 \} 
+\]
+
+is a group under the same addition, called the \(n\)-torsion subgroup. The torsion subgroup of \(G\) is 
+
+<br><span style="color:blue;">
+は同じ加法による群であり、\(n\)-捩れ部分群と呼ばれる。\(G\)の捩れ部分群は
+</span>
+
+\[
+G = \bigcup_n G[n]
+\]
+ 
+which consists of all the torsion elements of the group. 
+
+<br><span style="color:blue;">
+これは、群のすべてのねじれ要素で構成されます。
+</span>
+
+</p><p> 
+Our key milestone for encountering a torsion subgroup is when we get the torsion points of an elliptic curve. 
+
+<br><span style="color:blue;">
+ねじれ部分群に遭遇する重要なマイルストーンは、楕円曲線のねじれ点を取得するときです。
+</span>
+
+</p><p> 
+Here is a simple construction to build bigger Abelian groups: 
+
+<br><span style="color:blue;">
+より大きなアーベル群を構築するための簡単な構成は次のとおりです。
+</span>
+
+</p><p> 
+<strong>Definition 6.7.</strong> Give two Abelian groups \(A\) and \(B\), define an Abelian group \(A⊕B\) by taking the set \(A×B\) of ordered pairs \((a,b)\) with \(a ∈ A\) and \(b ∈ B\) and define addition pointwise :
+
+<br><span style="color:blue;">
+<strong>定義 6.7.</strong> 2 つのアーベル群 \(A\) と \(B\) を与え、\(a ∈ A\) および \(b ∈ B\) である順序付きペア \((a,b)\) の集合 \(A×B\) をとってアーベル群 \(A⊕B\) を定義し、点ごとに加法を定義します。
+</span>
+
+\[ 
+(a_1, b_1) + (a_2, b_2) = (a_1 + a_2, b_1+ b_2)
+\]
+ 
+for all \(a_1, a_2 ∈ A\) and \(b_1, b_2 ∈ B\).
+
+<br><span style="color:blue;">
+すべての \(a_1, a_2 ∈ A\) と \(b_1, b_2 ∈ B\) に対して。
+</span>
+
+</p><p>
+We will use this to show many key groups associated with elliptic curves are just two copies of the same group, for example \(Z/n ⊕ Z/n\).
+
+<br><span style="color:blue;">
+これを用いて、楕円曲線に関連する多くの重要な群が、同じ群の2つのコピーであることを示します。(例: \(Z/n ⊕ Z/n\))。
+</span>
+
+</p>
+ 
+<h4>6.1.2 Rings and Fields <span style="color:blue;">環と体</span></h4>
+<p>
+We can also get two operations on the same set: 
+
+<br><span style="color:blue;">
+同じ集合に対して 2 つの操作を実行することもできます。
+</span>
+
+</p><p>
+<strong>Definition 6.8</strong> (Ring) . A ring is a set R with two operations, usually called addition + and multiplication ×, satisfying several properties:
+
+<br><span style="color:blue;">
+<strong>定義 6.8</strong> (環) 環とは、通常加算 + と乗算 × と呼ばれる2つの演算を持つ集合 R であり、いくつかの性質を満たす。
+</span>
+
+</p><p>
+　\(R\), + is an Abelian group. 
+　\(R\), × is associative, and together distribute : 
+
+<br><span style="color:blue;">
+　\(R\), + はアーベル群である。
+　\(R\), × は結合的であり、一緒に分配する。
+</span>
+
+\[
+\begin{align}
+&a × (b + c) = a × b + a × c, \\
+\\
+&(a + b) × c = a × c + b × c 
+\end{align}
+\]
+
+for all \(a, b, c ∈ R\). If the multiplication is commutative then the ring is called a commutative ring . Often rings will also have an identity element for multiplica- tion included as part of the definition. 
+
+<br><span style="color:blue;">
+すべての \(a, b, c ∈ R\) に対して成り立つ。乗法が可換な場合、その環は可換環と呼ばれる。多くの場合、環には定義の一部として乗法の単位元も含まれる。
+</span>
+
+</p><p>
+In other words, rings have a notion of addition, subtraction and multiplication but not necessarily division. When there is a notion of division, they are called division rings and when the multiplication is commutative, we get a field : 
+
+<br><span style="color:blue;">
+言い換えれば、環は加法、減法、乗法の概念を持ちますが、必ずしも除法の概念を持つわけではありません。除法の概念を持つ環は除算環と呼ばれ、乗法が可換な場合は体が得られます。
+</span>
+
+</p><p>
+<strong>Definition 6.9</strong> (Field) . A field F is a commutative ring with the added property that every non-zero element has a multiplicative inverse. 
+
+<br><span style="color:blue;">
+<strong>定義 6.9</strong> (体) 体 F は、すべての非ゼロ元に逆元が存在するという追加の特性を持つ可換環である。
+</span>
+
+</p><p>
+In other words, \(F\), + is an Abelian group and \(F \{0\}\),× is an Abelian group, with distributivity holding them together. 
+
+<br><span style="color:blue;">
+言い換えれば、\(F\), + はアーベル群であり、\(F \{0\}\),× は分配法則によって結び付けられたアーベル群です。
+</span>
+
+</p><p>
+<strong>Definition 6.10</strong> (Characteristic of a Field) . The characteristic of a field is the smallest \(n\) for which scaling \(1\) by \(n\) equals zero, that is \(n(1) = 0\). The characteristic is defined to be zero if no \(n\) exists. 
+
+<br><span style="color:blue;">
+<strong>定義 6.10</strong> (体の標数) 体の標数とは、\(1\) を \(n\) でスケーリングしてゼロとなる最小の \(n\)、つまり \(n(1) = 0\) のことである。\(n\) が存在しないとき、標数はゼロと定義される。
+</span>
+
+</p><p>
+<strong>Proposition 6.1.</strong> If the characteristic is non-zero, then it is prime. 
+
+<br><span style="color:blue;">
+<strong>命題 6.1.</strong> 特性がゼロでない場合、それは素数です。
+</span>
+
+</p><p>
+Proof. Suppose for the sake of contradiction that we have a field F of character- istic \(ab\) where \(a, b ∈ \mathbb{N}_{≥2}\). We know that every element in \(F\) has a multiplicative inverse. Suppose \(a^{-1}\) is the inverse of \(a\). Therefore, \(1 = aa^{−1}\) from which multiplying by \(b\) implies that \(b = baa^{−1}= 0\). This is impossible because \(0 = b < ab\) which is assumed to be the smallest value that can scale \(1\) to become \(0\). This contradiction necessitates that the characteristic cannot be composite if it is nonzero. 
+
+<br><span style="color:blue;">
+証明。矛盾を避けるために、特性 \(ab\) の体 F があり、\(a, b ∈ \mathbb{N}_{≥2}\) であるとする。\(F\) のすべての元には逆元があることはわかっている。\(a^{-1}\) が \(a\) の逆元であるとする。したがって、\(1 = aa^{−1}\) となり、これに \(b\) を掛けると \(b = baa^{−1}= 0\) となる。これは不可能である。なぜなら、\(0 = b < ab\) は \(1\) を \(0\) にスケールできる最小の値であると仮定されるからである。この矛盾により、特性が 0 でない場合、合成数は存在しないことになる。
+</span>
+
+</p><p>
+<strong>Example 6.5.</strong> \(\mathbb{Z}\) with addition and multiplication is a commutative ring and so is \(\mathbb{Z}/n\mathbb{Z}\) with addition and multiplication modulo \(n\).
+
+<br><span style="color:blue;">
+<strong>例 6.5.</strong> 加算と乗算を伴う \(\mathbb{Z}\) は可換環であり、\(n\) を法とする加算と乗算を伴う \(\mathbb{Z}/n\mathbb{Z}\) も可換環です。
+</span>
+
+</p><p> 
+<strong>Example 6.6.</strong> \(\mathbb{Q}\) the set of rational numbers together with addition and mul- tiplication is a field of characteristic zero. 
+
+<br><span style="color:blue;">
+<strong>例 6.6.</strong> \(\mathbb{Q}\) 有理数の集合は加法と乗法を合わせた特性が 0 の体である。
+</span>
+
+</p><p>
+<strong>Example 6.7.</strong> \(\mathbb{C}\) the set of complex numbers together with addition and multiplication is a field of characteristic zero. 
+
+<br><span style="color:blue;">
+<strong>例 6.7.</strong> \(\mathbb{C}\) 複素数とその加算および乗算を合わせた集合は、特性 0 の体である。
+</span>
+
+</p><p>
+<strong>Example 6.8.</strong> \(\mathbb{Z}/p\mathbb{Z}\) the set of integers modulo a prime \(p\) together with addition and multiplication modulo p is a field. In this context, we will rewrite this as \8\mathbb{F}_p\) to emphasise it is a finite field of size p. It is a field of characteristic \(p\).
+
+<br><span style="color:blue;">
+<strong>例 6.8.</strong> 素数 \(p\) を法とする整数の集合 \(\mathbb{Z}/p\mathbb{Z}\) は、p を法とする加法および乗法を合わせた体である。この文脈では、これがサイズ p の有限体であることを強調するため、これを \8\mathbb{F}_p\) と書き直す。これは標数 \(p\) の体である。
+</span>
+
+</p>
+ 
+<h4>6.1.3 Vector Spaces and Modules <span style="color:blue;">ベクトル空間と加群</span></h4>
+<p>
+The torsion subgroup of an Abelian group seems to come from more than just an Abelian group since we defined a notion of scalar multiplication. 
+
+<br><span style="color:blue;">
+スカラー乗算の概念を定義して以来、アーベル群のねじれ部分群は単なるアーベル群以上のものから来ているようです。
+</span>
+
+</p><p>
+This subsection explores the interaction between scalar multiplication and ad- dition: 
+
+<br><span style="color:blue;">
+このサブセクションでは、スカラー乗算と加算の相互作用について説明します。
+</span>
+
+</p><p>
+<strong>Definition 6.11</strong> (\(R\)-module) . Let \(R\) be a ring with a multiplicative identity of \(1\). A (left) \(R\)-module \(V\) is an Abelian group \(V\), + together with a pairing
+
+<br><span style="color:blue;">
+<strong>定義 6.11</strong> (\(R\)-加群) \(R\) を \(1\) の乗法単位元を持つ環とする。(左) \(R\)-加群 \(V\) はアーベル群 \(V\) であり、+ と対をなす
+</span>
+
+\[ 
+R × V → V 
+\]
+
+denoted 
+
+<br><span style="color:blue;">
+以下の様に表記する。
+</span>
+
+\[
+(λ, v ) \mapsto λv
+\]
+ 
+called scaling by \(R\) that satisfies several natural compatibility properties: 
+
+<br><span style="color:blue;">
+これはいくつかの自然な互換性特性を満たす \(R\) によるスケーリングと呼ばれます。
+</span>
+
+<div class="styleBullet">
+<ul><li>
+● \(λ · (v_1 + v_2) =λ · v_1 + λ · v_2\)
+
+</li><br><li>
+● \((r_1 + r_2) · λ = r_1λ + r_2λ\)
+
+</li><br><li>
+● \((r_1r_2) · v = r_1 · (r_2 · v)\)
+
+</li><br><li>
+● \(1 · v = v\)
+</li></ul></div>
+</p><p>
+
+<strong>Definition 6.12</strong>  (F-Vector Space) . A vector space over a field \(F\) is an \(F\)-module.
+
+<br><span style="color:blue;">
+<strong>定義 6.12</strong> (F-ベクトル空間) 体 \(F\) 上のベクトル空間は \(F\)-加群である。
+</span>
+
+</p><p>
+<strong>Example 6.9.</strong> Every abelian group is a \(\mathbb{Z}\)-module where scaling by \(\mathbb{Z}\) is defined as above as repeated addition or subtraction. 
+
+<br><span style="color:blue;">
+<strong>例 6.9.</strong> すべてのアーベル群は \(\mathbb{Z}\) 加群であり、\(\mathbb{Z}\) によるスケーリングは上記の繰り返し加算または減算として定義されます。
+</span>
+
+</p><p>
+<strong>Example 6.10.</strong> Every commutative ring \(R\) is an \(R\)-module, in particular, \(\mathbb{Z}/n\mathbb{Z}\) is a \(\mathbb{Z}/n\)-module and \(\mathbb{F}_p\) is a \(\mathbb{F}_p\)-vector space. 
+
+<br><span style="color:blue;">
+<strong>例 6.10.</strong> すべての可換環 \(R\) は \(R\) 加群であり、特に \(\mathbb{Z}/n\mathbb{Z}\) は \(\mathbb{Z}/n\) 加群であり、 \(\mathbb{F}_p\) は \(\mathbb{F}_p\) ベクトル空間である。
+</span>
+
+</p><p>
+<strong>Definition 6.1.</strong> Given two \(R\)-modules \(U\) and \(V\), define an \(R\)-module \(U ⊕V\) by taking the Abelian group \(U ⊕ V\) and define scaling by
+
+<br><span style="color:blue;">
+<strong>定義 6.1.</strong> 2つの \(R\)-加群 \(U\) と \(V\) が与えられ、アーベル群 \(U ⊕ V\) をとって \(R\)-加群 \(U ⊕ V\) を定義し、スケーリングを次のように定義する。
+</span>
+
+\[ 
+λ(u, v ) = ( λu, λv ) 
+\]
+
+for all \(λ ∈ R, u ∈ U, v ∈ V\).
+
+<br><span style="color:blue;">
+すべての\(λ∈R, u∈U, v∈V\)に対して。
+</span>
+
+</p><p> 
+Example 6.11. \(\mathbb{F}_p ⊕ \mathbb{F}_p\) is a \(\mathbb{F}_p\) vector space. 
+
+<br><span style="color:blue;">
+例6.11. \(\mathbb{F}_p ⊕ \mathbb{F}_p\)は\(\mathbb{F}_p\)ベクトル空間である。
+</span>
+
+</p><p>
+Example 6.12. \(\mathbb{Z}/n\mathbb{Z} ⊕ \mathbb{Z}/n\mathbb{Z}\) is a \(\mathbb{Z}/n\mathbb{Z}\)-module 
+
+<br><span style="color:blue;">
+例 6.12. \(\mathbb{Z}/n\mathbb{Z} ⊕ \mathbb{Z}/n\mathbb{Z}\) は \(\mathbb{Z}/n\mathbb{Z}\) 加群である
+</span>
+
+</p><p>
+We start by looking at the \(P\)-torsion points as an Abelian group but grad- ually change our perspective to first see a \(\mathbb{Z}\)-module and then a \8\mathbb{Z}/p\)-module, which is the same as an \(\mathbb{Z}/p\)-vector space. 
+
+<br><span style="color:blue;">
+まず、\(P\)-ねじれ点をアーベル群として見ていきますが、徐々に視点を変えて、最初に \(\mathbb{Z}\)-加群、次に \(\mathbb{Z}/p\)-加群、つまり \(\mathbb{Z}/p\)-ベクトル空間を見てみます。
+</span>
+
+</p>
+
+<h3>6.2 Morphisms in Abstract Algebra <span style="color:blue;">抽象代数における射影 </span></h3>
+<p>
+So far, we’ve introduced several key objects in abstract algebra: groups , rings , fields , and modules . Each of these structures is defined by a set equipped with operations satisfying certain axioms. However, we’ve yet to discuss the concept of morphisms — the functions between these structures that preserve their defining properties. 
+
+<br><span style="color:blue;">
+これまで、抽象代数学におけるいくつかの重要な対象、すなわち群、環、体、加群を紹介してきました。これらの構造はそれぞれ、特定の公理を満たす演算を備えた集合によって定義されます。しかし、射の概念、つまりこれらの構造間の定義特性を保持する関数についてはまだ説明していません。
+</span>
+
+</p><p>
+Understanding morphisms is important because they allow us to compare al- gebraic objects meaningfully. They also provide powerful shortcuts: instead of verifying all properties directly, we can often reason about structures via the morphisms between them. 
+
+<br><span style="color:blue;">
+射を理解することは、代数的対象を意味のある形で比較することを可能にするため重要です。また、射は強力な近道も提供します。つまり、すべての性質を直接検証する代わりに、それらの間の射を介して構造について推論できる場合が多いのです。
+</span>
+
+</p><p>
+Before diving into the details, getting the big idea can save a lot of effort, because to write everything in every detail can be difficult to get right com- pletely, and it can be overwhelming sometimes when you’re just starting out. 
+
+<br><span style="color:blue;">
+詳細に入る前に、全体的なアイデアを把握することで、多くの労力を節約できます。すべてを細部まで書き出すのは難しく、始めたばかりのときは圧倒されてしまうことがあるからです。
+</span>
+
+</p><p>
+Morphisms that we discuss are functions between objects of the same type that preserve their defining properties. Even if it appears they are defined to not preserve some properties, they usually are able to be shown as a consequence of the preserved ones that are included. 
+
+<br><span style="color:blue;">
+ここで論じる射とは、同じ型のオブジェクト間の、定義特性を保持する関数です。たとえ一部の特性を保持しないように定義されているように見えても、通常は、含まれる保持特性の結果として、それらの特性を示すことができます。
+</span>
+
+</p>
+
+<h4>6.2.1 Group Homomorphisms <span style="color:blue;">群準同型</span></h4>
+<p>
+<strong>Definition 6.13</strong> (Group Homomorphisms) . Given two groups \(G\) and \(H\), a group homomorphism is a function 
+
+<br><span style="color:blue;">
+<strong>定義 6.13</strong> (群準同型) 2つの群 \(G\) と \(H\) が与えられたとき、群準同型とは関数である。
+</span>
+
+\[
+\varphi : G → H 
+\]
+
+that satisfies 
+
+<br><span style="color:blue;">
+以下を満足する
+</span>
+
+\[
+\varphi(ab ) = \varphi(a)\varphi(b)　for　all　a, b ∈ G
+\]
+ 
+<strong>Definition 6.14</strong> (Group Isomorphism) . A group isomorphism is a bijective homomorphism whose inverse is also a homomorphism. If such a map exists we say that \(G\) and \(H\) are isomorphic as groups — essentially, they are the same group structure up to renaming of elements. \(G\) and \(H\) being isomorphic is denoted by \(G \simeq H\). 
+
+<br><span style="color:blue;">
+<strong>定義 6.14</strong> (群同型) 群同型とは、その逆写像も準同型となるような全単射準同型である。そのような写像が存在する場合、\(G\) と \(H\) は群として同型であると言う。つまり、本質的には、元の名前を変えない限り、それらは同じ群構造である。\(G\) と \(H\) が同型であることは、\(G \simeq H\) と表記される。
+</span>
+
+</p><p>
+<strong>Definition 6.15</strong> (Automorphism) . An automorphism is an isomorphism of a group to itself. 
+
+<br><span style="color:blue;">
+<strong>定義 6.15</strong> (自己同型) 自己同型とは、群とそれ自身との同型性である。
+</span>
+
+</p><p>
+You may wonder if \(\varphi\) should send the identity of \(G\) to the identity of \(H\) but this is a consequence of preserving the operation. 
+
+<br><span style="color:blue;">
+\(\varphi\) は \(G\) の恒等式を \(H\) の恒等式に送るべきかどうか疑問に思うかもしれませんが、これは操作を保存した結果です。
+</span>
+
+</p><p>
+<strong>Example 6.13.</strong> Group homomorphisms \(f\) between Abelian groups might be written 
+
+<br><span style="color:blue;">
+<strong>例6.13.</strong> アーベル群間の群準同型\(f\)は次のように書ける。
+</span>
+
+\[
+f(a + b) = f(a) + f(b), 
+\]
+
+which is just an additive function. We know that \(f(0) = 0\) and \(f(−a) = −a\) are consequences of additivity. 
+
+<br><span style="color:blue;">
+これは単なる加法関数です。\(f(0) = 0\) と \(f(−a) = −a\) は加法性の結果であることが分かっています。
+</span>
+
+</p>
+
+<h4>6.2.2 Homomorphisms of Rings and Modules <span style="color:blue;">環と加群の準同型</span></h4>
+<p>
+<div class="styleBullet">
+<ul><li>
+
+● For rings , a ring homomorphism and multiplication: 
+\(\varphi : R → S\) must preserve both addition 
+
+<br><span style="color:blue;">
+環 に対して、環準同型と乗法:
+\(\varphi : R → S\) は、加法と乗法の両方を保存する必要がある。
+</span>
+
+\[
+\varphi(a + b) = \varphi(a) + \varphi(b),　　\varphi(ab) = \varphi(a)\varphi(b)
+\]
+ 
+and often (but not always), \(\varphi(1_R) = 1_S\). 
+
+<br><span style="color:blue;">
+そして多くの場合（常にではないが）、\(\varphi(1_R) = 1_S\)となる。
+</span><br>
+
+<br>
+<strong>Example 6.14.</strong> An illustrative example is the ring homomorphism \(φ : \mathbb{Z} → \mathbb{Z}/n\mathbb{Z}\). This holds as addition and multiplication are preserved in modular arithmetic.
+
+<br><span style="color:blue;">
+<strong>例 6.14.</strong> わかりやすい例として、環準同型 \(φ : \mathbb{Z} → \mathbb{Z}/n\mathbb{Z}\) が挙げられます。これは、モジュラー算術において加算と乗算が保存されるので成立します。<br>
+</span>
+
+<br> 
+<strong>Example 6.15.</strong> The most familiar example of a field automorphism on \(\mathbb{C}\) might be that of complex conjugation: 
+
+<br><span style="color:blue;">
+<strong>例 6.15.</strong> \(\mathbb{C}\) 上の体自己同型の最もよく知られた例は複素共役の例でしょう。
+</span>
+
+
+\[
+z = x + yi \mapsto \overline{z} = x − yi
+\]
+
+</p><p> 
+<strong>Definition 6.16.</strong> Given a field \(F\), the set of all field automorphisms is denoted \(Aut(F)\) and is itself a group under function composition. 
+
+<br><span style="color:blue;">
+<strong>定義 6.16.</strong> 体 \(F\) が与えられたとき、すべての体自己同型全体の集合は \(Aut(F)\) と表され、それ自体が関数合成による群である。
+</span>
+
+
+</li><br><li>
+● For modules , a module homomorphism between two \(R\)-modules \(M\) and \(N\) is a function \(f : M → N\) that preserves addition and scalar multiplication: 
+
+<br><span style="color:blue;">
+加群について、2つの \(R\)-加群 \(M\) と \(N\) 間の加群準同型は、加算とスカラー乗算を保存する関数 \(f : M → N\) です。
+</span>
+
+
+\[
+f(x + y) =f(x) +f(y),　f(rx) = rf(x)　for　all　x, y ∈ M, r ∈ R
+\]
+
+</p><p> 
+<strong>Definition 6.17.</strong> This is also an example but is used later too: an \(F\)-vector space \(V\) is two dimensional if 
+
+<br><span style="color:blue;">
+<strong>定義 6.17</strong> これは例ですが、後ほども使われます。\(F\)-ベクトル空間 \(V\) が2次元であるとは、
+</span>
+
+\[
+V \simeq F ⊕ F
+\]
+ 
+
+</li></ul></div>
+</p>
+
+    </body>
+</html>

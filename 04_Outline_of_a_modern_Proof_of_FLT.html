@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <meta charset="utf-8" />
+        <title>4 Outline of a modern Proof of FLT</title>
+        <style type="text/css">
+            p
+            {
+                padding-left: 2em;
+            }
+            .margin-large
+            {
+                margin-left: 30px;
+            }
+            .margin-large-blue
+            {
+                margin-left: 30px;
+                color: blue;
+            }
+           .margin-abstract {
+               margin-left: 60px; /* 左マージンを広くする */
+               margin-right: 60px; /* 右マージンを広くする */
+           }
+        </style>
+    <style>
+        .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px; /* 列間のスペース */
+        }
+        .column {
+            flex: 1; /* 各列が均等に幅を取る */
+        }
+    </style>
+<style>
+.three-columns {
+  display: flex;
+  gap: 10px; /* 列間の余白を設定 */
+}
+.column {
+  flex: 1; /* 各列の幅を均等にする */
+  padding: 10px; /* 内側の余白を設定 */
+}
+</style>
+    <style>
+        .styleRef { 
+            text-indent: -40px; /* 最初の行の字下げを逆方向に */
+            margin-left: 10px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 40px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+        .styleBullet { 
+            text-indent: -20px; /* 最初の行の字下げを逆方向に */
+            margin-left: 30px; /* 2行目以降の字下げを調整 */
+            ul {
+                  list-style-type: none; /* 箇条書き記号を非表示 */
+                  padding-left: 0px; /* 全体の左余白 */
+            }
+            li {
+            }
+        }
+    </style>
+    <style>
+            ol
+            {
+                margin-left: 30px;
+            }
+            ul
+            {
+                margin-left: 30px;
+            }
+    </style>
+    <style>
+        .thin-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        .thick-line {
+            margin: 0; 
+            margin-left:2em;
+            border: 0;
+            height: 2px;
+            background-color: black;
+        }
+    </style>
+    <style>
+        .blue {
+            color: blue; /* 好きな色に変更してください */
+        }
+    </style>
+    </head>
+    <body>
+        <h1><center>Understanding Fermat’s Last Theorem’s Proofs <br><span style="color:blue;">フェルマーの最終定理の証明を理解する</span></center></h1>
+
+<h2>4 Outline of a modern Proof of FLT　<span style="color:blue;">現代のFLT証明の概要</span></h2>
+<p>
+<div class="styleBullet">
+<ul><li>
+• Everything up to the Frey curve and its \(\mod P\) Galois representation is the same, possibly needing a few more base cases than just \(n = 3,4\). 
+
+<br><span style="color:blue;">
+フライ曲線とその \(\mod P\) ガロア表現まではすべて同じですが、おそらく \(n = 3,4\) よりもいくつかの基本ケースが必要になります。
+</span>
+
+</li><br><li>
+• Serre shows in [3] that Serre’s modularity conjecture imples FLT . <br>He does this by showing the Galois representation from the Frey curve satisfies the Serre conjecture. 
+
+<br><span style="color:blue;">
+セールは[3]で、セールのモジュラリティ予想がFLTを実現することを示している。<br>彼は、フライ曲線からのガロア表現がセール予想を満たすことを示すことによってこれを行っている。
+</span><br>
+<br>
+
+This then shows that the Galois representation from the Frey curve leads to a cusp form of level 2 and weight 2, which is the same contradiction as before. 
+
+<br><span style="color:blue;">
+これは、フライ曲線からのガロア表現がレベル 2 および重み 2 のカスプ形式につながることを示していますが、これは前と同じ矛盾です。
+</span>
+
+</li><br><li>
+• Khare-Wintenberger prove Serre’s modularity conjecture [18]. 
+
+<br><span style="color:blue;">
+カレー＝ウィンテンベルガーはセールのモジュラリティ予想を証明した[18]。
+</span>
+
+</li></ul></div>
+</p>
+
+<h3>4.1 Serre’s modularity Conjecture <span style="color:blue;">セールのモジュール性予想</span></h3>
+<p>
+Serre’s Conjecture implies both the \(\varepsilon\)-conjecture and the TSW Conjecture but instead of using those two statements, the Serre conjecture gives a contradiction to prove FLT directly. The contradiction is ultimately the same one with no level 2 weight 2 cusp forms. 
+
+<br><span style="color:blue;">
+セール予想は\(\varepsilon\)予想とTSW予想の両方を示唆しますが、セール予想はこれら2つの命題を用いる代わりに、FLTを直接証明するための矛盾を生じさせます。この矛盾は、レベル2、重み2、カスプ形式が存在しないという矛盾と究極的に同じです。
+</span>
+
+</p>
+
+<h4>4.1.1 Collection of Statements <span style="color:blue;">声明の収集</span></h4>
+<p>
+Example 4.1 (Serre’s Conjecture and Translation [3]) . 
+
+<br><span style="color:blue;">
+例4.1（セールの予想と翻訳[3]）。
+</span>
+
+</p>
+
+<p style="padding-left: 6em;">
+3.2. Les diverses variantes de la conjecture. Revenons aux notations du §1, et
+soit
+
+<br><span style="color:blue;">
+3.2. 予想の様々な変種。§1の記法に戻り、
+</span>
+
+\[
+\rho: G_Q → \mathbf{GL}(V) \sim \mathbf{GL}_2(\overline{\mathbf{F}}_p)
+\]
+
+un homomorphisme continu, V étant un \(\overline{\mathbf{F}}_p\)-espace vectoriel de dimension 2. On suppose que:
+
+<br><span style="color:blue;">
+連続準同型で、V は 2 次元の \(\overline{\mathbf{F}}_p\)-ベクトル空間である。以下を仮定する。
+</span><br>
+<br>
+(3.2.1) \(\rho\) est irréductible,<br>
+et<br>
+(3.2.2) det \(\rho\) est impair, cf. (1.3.8).
+
+<br><span style="color:blue;">
+(3.2.1) \(\rho\) は既約であり、
+(3.2.2) det \(\rho\) は奇数である（(1.3.8) 参照）。
+</span><br>
+
+<br>
+La conjecture affirme que \(\rho\) est alors du type \(\rho_f\) de (3.1.7). Autrement dit:
+(3.2.3,) Il existe une forme parabolique \(f\) (de type convenable) a coefficients
+dans \(\overline{\mathbf{F}}_p\) qui est fonction propre des opérateurs de Hecke, et dont la représentation \(\rho\) donnee.
+
+<br><span style="color:blue;">
+予想によれば、\(\rho\) は (3.1.7) の \(\rho_f\) 型となる。言い換えれば、(3.2.3) \(\overline{\mathbf{F}}_p\) に係数を持つ（適切な型の）放物型形式 \(f\) が存在し、これはヘッケ作用素の固有関数であり、その表現 \(\rho\) が与えられている。
+</span><br>
+<br>
+Il convient de préciser (3.2.3,) en donnant le type \((N, k, \varepsilon)\) de \(f\):
+
+<br><span style="color:blue;">
+(3.2.3) を \(f\) の型 \((N, k, \varepsilon)\) を与えることによって指定するのが適切である:
+</span><br>
+<br>
+
+(3.2.4,) La forme parabolique f de (3.2.3,) peut étre choisie de type \((N, k, \varepsilon)\), ou
+\(N, k\) et \(\varepsilon\) sont les invariants de \(\rho\) définis au §1 et au §2.
+
+<br><span style="color:blue;">
+(3.2.4,) (3.2.3,) の放物型 f は \((N, k, \varepsilon)\) 型に選ぶことができる。ここで、\(N, k\) と \(\varepsilon\) は §1 と §2 で定義された \(\rho\) の不変量である。
+</span><br>
+<br>
+
+Si \(f=\Sigma a_n q^n\) est normalisée \((a_1 = 1)\), le fait que \(\rho_f\) soit isomorphe a \(\rho\) se
+traduit par les égalités
+
+<br><span style="color:blue;">
+\(f=\Sigma a_n q^n\) が \((a_1 = 1)\) に正規化されている場合、\(\rho_f\) が \(\rho\) と同型であるという事実は、次の等式によって変換されます。
+</span><br>
+<br>
+(3.2.5) \(Tr(Frob_{l,\rho}) =a_l\) et \(\det(Frob_{l.\rho}) = \varepsilon(l)l^{k-1}\),
+
+<br><span style="color:blue;">
+(3.2.5) \(Tr(Frob_{l,\rho}) =a_l\) および \(\det(Frob_{l.\rho}) = \varepsilon(l)l^{k-1}\)、
+</span><br>
+<br>
+égalités qui doivent étre valables pour tout nombre premier \(l\) ne divisant pas pN.
+(II suffit d’ailleurs que la premiére égalité de (3.2.5) ait lieu pour un ensemble de \(l\)
+de densité 1.)
+
+<br><span style="color:blue;">
+pNを割り切れない任意の素数 \(l\) に対して必ず成立する等式である。
+（さらに、（3.2.5）の最初の等式が、密度1の \(l\) の集合に対して成立していれば十分である。）
+</span>
+</p>
+    </body>
+</html>
